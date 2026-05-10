@@ -9,18 +9,23 @@ description: "Quick answers to common questions."
   <Accordion title="What is BasedMining?">
     A hybrid lottery pool for Bitcoin mining. When the pool finds a block, the miner who solved it gets 1 BTC (chain-enforced), and everyone who contributed to that round gets a proportional share of the remainder. 0% pool fee.
   </Accordion>
+
   <Accordion title="What does 'hybrid lottery pool' mean?">
     We combine the upside of solo mining (1 BTC for the finder) with the steady accrual of a traditional pool (proportional share of every block). See [The Hybrid Model](/pool/hybrid-model).
   </Accordion>
+
   <Accordion title="What's the pool fee?">
-    **0%** on block rewards. We don't take any cut from the BTC the pool finds. Operator revenue comes from Hashpower NFT sales, not from your mining.
+    **0%** on block rewards. We don't take any cut from the BTC the pool finds. Operator revenue comes from other sources, not from your mining.
   </Accordion>
+
   <Accordion title="Are you on mainnet?">
     Yes. Both the pool and the Hashpower NFT contract are live on **Base mainnet**. There is no testnet active.
   </Accordion>
+
   <Accordion title="Why Base?">
     Fast, cheap, EVM-compatible L2. Onchain rewards in cbBTC, native USDC, and ETH all work out of the box. Most wallets and tools already support Base.
   </Accordion>
+
   <Accordion title="Who runs BasedMining?">
     Independent operators who actually mine. Not VC-backed, not custodial, not an exchange.
   </Accordion>
@@ -30,23 +35,28 @@ description: "Quick answers to common questions."
 
 <AccordionGroup>
   <Accordion title="What ASICs are supported?">
-    Anything that speaks standard stratum. Apollo, most Bitaxe models, S19, S21, Whatsminer, Avalon — all work.
+    Anything that speaks standard stratum. Bitaxe models, Nerdminers, S19, S21, Whatsminer, Avalon, — all work.
   </Accordion>
+
   <Accordion title="What's the minimum hashrate?">
     No minimum. A single Bitaxe is welcome.
   </Accordion>
+
   <Accordion title="What stratum port should I use?">
     `:3333` for most rigs (mindiff 1024). `:3336` for larger rigs that need higher base difficulty to avoid share flooding.
   </Accordion>
+
   <Accordion title="When do I get paid?">
     - **Finder reward (if you win)**: instant. The 1 BTC is paid in the same Bitcoin block your share solved.
     - **Remainder share**: typically within 24 hours of a block being found.
 
     All payouts go directly to the BTC address you registered. **No claim, no approval, no portal.**
   </Accordion>
+
   <Accordion title="Can I use an exchange deposit address as my payout?">
     Technically yes, practically no. Exchanges sometimes refuse small inbound transactions, change deposit addresses without warning, or flag mining payouts as suspicious. Use a self-custody wallet — Sparrow, BlueWallet, hardware wallet.
   </Accordion>
+
   <Accordion title="Why aren't my shares showing up?">
     See the [troubleshooting section](/miners/connect-your-rig#troubleshooting) on the Connect Your Rig page.
   </Accordion>
@@ -58,26 +68,33 @@ description: "Quick answers to common questions."
   <Accordion title="What does a Hashpower NFT do?">
     Each mint rents real Bitcoin hashpower from the spot market and points it at our pool during the next Block Party. If a block is found while your mint is active, you receive a proportional share of the remainder in cbBTC on Base.
   </Accordion>
+
   <Accordion title="What are the tiers?">
     Spark ($15, ~1 PH/s, ~9h), Miner ($35, ~1.8 PH/s, ~12h), Digger ($100, ~2.5 PH/s, ~24h), Crusher ($250, ~6 PH/s, ~24h). Hashpower and duration are estimates based on spot-market rates at time of mint.
   </Accordion>
+
   <Accordion title="Do I have to claim anything?">
     **No.** Payouts go straight to the wallet that minted. There's no claim button, no portal, no login.
   </Accordion>
+
   <Accordion title="What if no block is found during my Block Party window?">
     Mining is probabilistic. Some windows will hit, some won't. Your USD price is fixed; the outcome is a real lottery shot. Hold multiple NFTs across Block Parties to compound your shots.
   </Accordion>
+
   <Accordion title="Why don't I see my NFT on OpenSea?">
     Marketplaces often auto-hide newly minted NFTs from collections they don't recognize yet. **Check the "Hidden" folder** in your OpenSea profile. Move it to your main collection from there.
 
     Basescan always shows the truth — if it's there, you own it.
   </Accordion>
+
   <Accordion title="Can I sell my Hashpower NFT?">
     Yes. It's a standard ERC-721 on Base. **Note:** during an active rental window, share-credit stays with the original minter even if the NFT transfers — the art moves, but the active rental doesn't. After the window ends, the NFT is a pure collectible.
   </Accordion>
+
   <Accordion title="When does my hashpower activate?">
     Your mint queues automatically for the **next Block Party**. When that party starts, your hashpower goes live for the duration of your tier. You don't have to do anything between mint and activation.
   </Accordion>
+
   <Accordion title="Do bigger mints earn more?">
     Yes — your share of any block's remainder scales linearly with your hashpower contribution. 2× the mints = 2× the slice (in the same Block Party). Bigger mints also climb the leaderboards faster, which is where bonus rewards occasionally land.
   </Accordion>
@@ -89,9 +106,11 @@ description: "Quick answers to common questions."
   <Accordion title="Is the agent API live?">
     Not yet. We're publishing the design and working with a small group of agent builders before public release. See [For Agents](/agents/overview).
   </Accordion>
+
   <Accordion title="What's x402?">
     An open HTTP-native standard for stablecoin micropayments. Server returns `402 Payment Required`, client pays in USDC, call completes. See [x402.org](https://www.x402.org).
   </Accordion>
+
   <Accordion title="Can I integrate before launch?">
     Yes — DM [@basedminingco](https://twitter.com/basedminingco) with what you're building.
   </Accordion>
@@ -105,9 +124,11 @@ description: "Quick answers to common questions."
 
     The remainder distribution is operator-broadcast (one transaction per block), so we could theoretically delay it — but it's published with the simulator output and reconciles to within a few sats of dust every time. The transparency is verifiable.
   </Accordion>
+
   <Accordion title="What about the onchain side?">
     The Hashpower NFT contract is verified on Basescan. Mints, transfers, and reward distributions are all visible on-chain. The contract is at `0x076F50Ba398C3c8f3f2AB7B563A5c4784a3A44Af` on Base mainnet.
   </Accordion>
+
   <Accordion title="What if BasedMining goes offline?">
     Your hardware is yours. Repoint at any other stratum URL and you're mining elsewhere in seconds. BTC payouts already received are in your wallet — they don't depend on the pool staying up. Your NFT stays in your wallet permanently; only future Block Party participation would be affected.
   </Accordion>

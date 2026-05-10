@@ -24,7 +24,7 @@ x
 </CodeGroup>
 
 <Tip>
-The worker name is whatever you want — `home1`, `garage`, `apollo-east`. It's just a label so you can tell your rigs apart on the dashboard.
+  The worker name is whatever you want — `home1`, `garage`, `apollo-east`. It's just a label so you can tell your rigs apart on the dashboard.
 </Tip>
 
 ## Step-by-step
@@ -54,18 +54,18 @@ The worker name is whatever you want — `home1`, `garage`, `apollo-east`. It's 
 ## Examples by miner
 
 <AccordionGroup>
-  <Accordion title="FutureBit Apollo II / BTC">
-    Apollo Web UI → **Settings → Mining** → fill in URL, Username (`<btc-address>.<worker>`), Password (`x`) → **Save** → Apollo will restart.
-  </Accordion>
   <Accordion title="Bitaxe (Gamma / Ultra / Supra / any model)">
     Bitaxe web UI → **Settings** → Stratum URL `pool.basedmining.xyz`, Stratum Port `3333`, Stratum User `<btc-address>.<worker>`, Stratum Password `x` → **Save**.
   </Accordion>
+
   <Accordion title="Antminer (S19, S21, etc.)">
     Web UI → **Configuration → Miner Configuration** → fill Pool 1 with the URL, worker, and password → **Save & Apply**.
   </Accordion>
+
   <Accordion title="Whatsminer">
     Web UI → **Network → Mining Configuration** → set Pool 1 URL/Worker/Password → **Save**.
   </Accordion>
+
   <Accordion title="Avalon">
     Web UI → **Pool** → set Pool URL, Worker, Password → **Save**.
   </Accordion>
@@ -93,12 +93,12 @@ After 1–2 minutes, open the [dashboard](https://basedmining.xyz/dashboard). Yo
 You can also go directly to your per-miner page at `basedmining.xyz/miner/<your-btc-address>` — bookmark it.
 
 <Warning>
-If your worker doesn't appear within 5 minutes:
+  If your worker doesn't appear within 5 minutes:
 
-- Double-check your BTC address — no typos
-- Make sure you used a `.` (period) between the address and worker name, not a space or `:`
-- Confirm the miner has internet (try pinging from its UI or checking its event log)
-- Try the high-diff port `:3336` if your rig is large
+  - Double-check your BTC address — no typos
+  - Make sure you used a `.` (period) between the address and worker name, not a space or `:`
+  - Confirm the miner has internet (try pinging from its UI or checking its event log)
+  - Try the high-diff port `:3336` if your rig is large
 </Warning>
 
 ## Troubleshooting
@@ -107,12 +107,15 @@ If your worker doesn't appear within 5 minutes:
   <Accordion title="My miner connects but I don't see shares">
     Wait two more minutes — small miners take a moment to find their first share. If still nothing, check the miner's log for `stratum` messages and confirm you didn't typo the URL.
   </Accordion>
+
   <Accordion title="My worker shows up but with 0 H/s">
     The connection is fine but the miner isn't hashing. Check the miner's status page — it may be mid-restart, overheating, or in an idle state.
   </Accordion>
+
   <Accordion title="High rejection rate">
     Check that your miner's clock is synced (NTP) and that you're not overclocking past the chip's stable range. Some firmware versions have known stratum-difficulty bugs — try the latest stable. If rejections are persistent on a big rig, switch to port `:3336`.
   </Accordion>
+
   <Accordion title="None of this is working">
     Hop into Twitter — [@basedminingco](https://twitter.com/basedminingco) — and DM with your miner model and what you see in the logs. We'll help you sort it.
   </Accordion>
@@ -120,6 +123,6 @@ If your worker doesn't appear within 5 minutes:
 
 ## Next
 
-- **[Payouts](/miners/payouts)** — how rewards reach your wallet.
-- **[Your miner page](/dashboard/your-miner-page)** — your per-rig stats and history.
-- **[Leaderboards](/dashboard/leaderboards)** — Top Difficulties, Top Loyalty, and the rewards that show up there.
+- [**Payouts**](/miners/payouts) — how rewards reach your wallet.
+- [**Your miner page**](/dashboard/your-miner-page) — your per-rig stats and history.
+- [**Leaderboards**](/dashboard/leaderboards) — Top Difficulties, Top Loyalty, and the rewards that show up there.

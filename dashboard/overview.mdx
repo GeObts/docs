@@ -9,7 +9,7 @@ The [BasedMining dashboard](https://basedmining.xyz/dashboard) is where the whol
 
 ### Live Data strip
 
-Top of the page. Real-time block + network conditions:
+Top of the page. Real-time block \+ network conditions:
 
 - **HIGHEST DIFF SINCE LAST BLOCK** — the best share submitted in the current round (across the whole pool)
 - **MINIMUM NEEDED DIFF** — Bitcoin's current network difficulty (what your share has to beat to find a block)
@@ -20,7 +20,7 @@ Top of the page. Real-time block + network conditions:
 
 ### Power Bar
 
-Visual comparison: the pool's hashrate vs. the global Bitcoin network. The bar has milestone ticks at **100 PH** and **500 PH** so you can see the pool's scale as it grows.
+Visual comparison: the pool's hashrate vs. the global Bitcoin network. The bar has milestone ticks so you can see the pool's scale as it grows.
 
 ### Pool Hashrate Gauge
 
@@ -36,7 +36,7 @@ Three cards: **1 Day Avg**, **6 Hour Avg**, **7 Day Avg**. Same data, different 
 
 ### Users & Workers chart
 
-Line chart with two axes — number of distinct miners on the left, total worker connections on the right. Workers > Users because most miners run multiple ASICs.
+Line chart with two axes — number of distinct miners on the left, total worker connections on the right. Workers \> Users because most miners run multiple ASICs.
 
 ### Leaderboards
 
@@ -48,40 +48,57 @@ Three leaderboards that anyone can climb:
 
 Each has a **"Since Block" / "All-Time"** toggle (the toggle appears once the pool has found its first block).
 
-→ **[Leaderboards](/dashboard/leaderboards)** for what each board means and how special rewards land on them.
+→ [**Leaderboards**](/dashboard/leaderboards) for what each board means and how special rewards land on them.
 
 ## Per-miner page
 
 If you're mining, you also have a personal page at:
 
-```
-basedmining.xyz/miner/<your-btc-address>
+```text
+basedmining.xyz/miner/<your-address>
 ```
 
-→ **[Your Miner Page](/dashboard/your-miner-page)** for the full walkthrough.
+→ [**Your Miner Page**](/dashboard/your-miner-page) for the full walkthrough.
 
 ## Search
 
 There's a search box in the top navbar (small magnifying glass). Type any BTC or 0x address → opens the corresponding miner page.
 
-## Wallet-connected view
+## Your Sovereign Mining Command Center: 
 
-Connecting your wallet adds:
+## The BasedMining Dashboard
 
-- Personalized leaderboard highlights (your row stands out)
-- Your referral panel (with your link + share buttons)
-- For NFT holders: your tier + active rental status
-- The referral leaderboard wrapper on the Mint page
+The BasedMining dashboard is your personalized command center, offering transparency and control over your mining operations and NFT holdings. Designed for both individual miners and Hashpower NFT holders, it provides a comprehensive, real-time overview without ever requiring you to connect your wallet to view public stats.
 
-You don't need to connect a wallet to see anyone else's stats — it's all public.
+### Key Features of Your Dashboard:
+
+•Dual Address Linking: Seamlessly view stats associated with both your Bitcoin (bc1q...) and linked EVM (0x...) addresses, providing a unified view of your mining identity.
+
+•Real-time Hashrate & Performance Metrics: Monitor your current hashrate (e.g., 1910.00 H/s with 1-hour average 391.00 TH/s), best difficulty achieved, total work contributed (6.33 G or 0.314664 PH-days), and your pool share. Track historical performance with 6-hour, 1-day, and 7-day average hashrates.
+
+•Worker Management: A detailed table lists all your active workers (e.g., spark3), their individual hashrates, best difficulty, and last submitted share time, allowing you to quickly identify and troubleshoot any performance issues.
+
+•Pool Connection Details: Easily access your stratum endpoint (pool.basedmining.xyz:3333) and stratum username (your Bitcoin address) with convenient copy buttons for quick configuration of your mining hardware.
+
+•Block Discovery Tracking: See the total number of blocks found by the pool during its lifetime, providing a clear indicator of collective success.
+
+•Personalized Leaderboard Highlights: Track your standing and achievements within the BasedMining community.
+
+•Referral Panel: Access your unique referral link and share buttons to invite others to the Sovereign Mining Renaissance.
+
+•NFT Holder Status: For Hashpower NFT holders, the dashboard clearly displays your active tier and rental status, confirming your participation in Block Parties.
+
+•Public Transparency: You don't need to connect a wallet to view any of these statistics for any address—it's all publicly verifiable, reinforcing the trustless nature of BasedMining.
+
+This dashboard is built to empower you with all the information needed to manage your sovereign mining journey, whether you're running physical hardware or participating through Hashpower NFTs.
 
 ## Other dashboards on the site
 
 | Page | URL | What it's for |
 | --- | --- | --- |
-| Main dashboard | [/dashboard](https://basedmining.xyz/dashboard) | Pool-wide live stats + leaderboards |
-| Per-miner page | [/miner/&lt;btc-address&gt;](https://basedmining.xyz/miner/) | Your individual stats |
-| Mint page | [/mint](https://basedmining.xyz/mint) | NFT mint + referral leaderboard |
+| Main dashboard | [/dashboard](https://basedmining.xyz/dashboard) | Pool-wide live stats \+ leaderboards |
+| Per-miner page | [/miner/\<btc-address\>](https://basedmining.xyz/miner/) | Your individual stats |
+| Mint page | [/mint](https://basedmining.xyz/mint) | NFT mint \+ referral leaderboard |
 | Calculator | [/calculator](https://basedmining.xyz/calculator) | Mining-odds simulator |
 | AI Agents | [/agents](https://basedmining.xyz/agents) | Agent surface (coming soon page) |
 | Jackpot | [/jackpot](https://basedmining.xyz/jackpot) | Megapot lottery (separate from mining) |

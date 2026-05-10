@@ -50,7 +50,6 @@
           {
             "group": "For Onchain Users",
             "pages": [
-              "onchain/overview",
               "onchain/mint-hash",
               "onchain/rewards"
             ]

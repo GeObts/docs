@@ -5,11 +5,11 @@ description: "Your personal stats page — bookmark this."
 
 Every miner gets a personal stats page at:
 
-```
-basedmining.xyz/miner/<your-btc-address>
+```text
+basedmining.xyz/miner/<your-address>
 ```
 
-Replace `<your-btc-address>` with the BTC address you registered as your stratum username. The page is public — anyone with the address can view it — so screenshot-share it freely.
+Replace `<your-btc-address>` with the BTC address you registered as your stratum username or your EVM address used to mint an NFT. The page is public — anyone with the address can view it — so screenshot-share it freely.
 
 ## What's on the page
 
@@ -17,24 +17,31 @@ Replace `<your-btc-address>` with the BTC address you registered as your stratum
   <Card title="Live hashrate" icon="gauge">
     Your hashrate across multiple windows (1m, 1h, 24h). Updates every 30 seconds.
   </Card>
+
   <Card title="Best share" icon="trophy">
     Your top difficulty share — how close you've come to solving a block.
   </Card>
+
   <Card title="Accepted vs rejected" icon="check">
     Counters for accepted and rejected shares. High rejection rate means firmware or clock issues.
   </Card>
+
   <Card title="Last share timestamp" icon="clock">
     When your most recent share was submitted. If this is more than a few minutes old, your rig is offline.
   </Card>
+
   <Card title="PH-days" icon="chart-line">
     Cumulative work expressed as petahash-days. Useful for comparing your total contribution across long periods.
   </Card>
+
   <Card title="Blocks participated" icon="cube">
     How many blocks the pool found while you were contributing.
   </Card>
+
   <Card title="Worker breakdown" icon="server">
     If you run multiple workers under the same address, each shows up here with its own stats.
   </Card>
+
   <Card title="Your Hashpower NFTs" icon="sparkles">
     If your BTC address is mapped to a Hashpower NFT, the NFT inventory shows here too.
   </Card>

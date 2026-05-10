@@ -1,23 +1,27 @@
 ---
-title: "Mine Bitcoin"
-description: "Hybrid Lottery Pool. Built for home miners, AI agents, and onchain users."
+title: "BasedMining"
+description: "Bitcoin mining, reimagined. BasedMining is a cutting-edge, unique hybrid Bitcoin mining pool that empowers home miners, onchain users, and AI agents. We seamlessly bridge the trustless world of Bitcoin with the expansive EVM universe, offering a novel approach to solo mining with collective rewards."
 ---
 
 ## What is BasedMining?
 
-BasedMining is a Bitcoin mining pool with one job: **make it easy for anyone to mine Bitcoin**. Plug in a rig at home, mint a Hashpower NFT on Base, or point an autonomous agent at us via x402 — same pool, same rewards, same shot at finding a block.
+BasedMining is a Bitcoin mining pool with one goal: **make it easy for anyone to pool together and mine Bitcoin**, whether you plug in an ASIC at home, hold a hashpower NFT, or deploy your autonomous agent. BasedMining is a Bitcoin mining pool with one job: **make it easy for anyone to mine Bitcoin**. Plug in a rig at home, mint a Hashpower NFT on Base, or point an autonomous agent at us via x402 — same pool, same rewards, same shot at finding a block.
 
-We're a **hybrid lottery pool**. When the pool finds a block, the miner whose share solved it gets **1 BTC** instantly, paid by the Bitcoin network itself. The **remaining ~2.1+ BTC + fees** is split proportionally among everyone who contributed work to that round. Nobody walks away with nothing.
+We are not another DeFi farm. We are not a custodian. We point real hashrate at the Bitcoin network, find blocks, and pass rewards back to the people who participated — directly, transparently, and onchain where it makes sense.
 
-**0% pool fee.** Our revenue is from NFT sales, not from your block rewards.
+We're a **hybrid lottery pool**. When the pool finds a block, the miner whose share solved it gets **1 BTC** instantly, paid by the network itself. The **remaining ~2.1\+ BTC** is split proportionally among everyone who contributed work to that round. Every participant gets a payout.
+
+**0% pool fee.** You win...we win.
 
 <CardGroup cols={3}>
   <Card title="For Miners" icon="server" href="/miners/overview">
     Plug your ASIC in. Point it at the pool. Win 1 BTC if you find a block. Earn a share every round either way.
   </Card>
+
   <Card title="For Onchain Users" icon="link" href="/onchain/overview">
-    Mint a Hashpower NFT and get real Bitcoin hashpower for the next Block Party. Paid in cbBTC on Base.
+    Mint a Hashpower NFT and get real hashpower for the next Block Party. Earn rewards when a block is found. Paid in cbBTC on Base.
   </Card>
+
   <Card title="For Agents" icon="robot" href="/agents/overview">
     Programmatic mining for AI. x402 settlement. Mining skillsets shipping soon.
   </Card>
@@ -25,11 +29,17 @@ We're a **hybrid lottery pool**. When the pool finds a block, the miner whose sh
 
 ## Why this exists
 
-Bitcoin mining is mostly industrial farms now. Home miners — the people who made Bitcoin what it is — got priced out of competing on raw hashrate.
+Bitcoin mining became an institutional sport. Industrial farms are dominating the space, and home miners — the people who made Bitcoin what it is — are getting priced out of the competion. We are doing our part to fight back against centralization while adding in some fun.
 
-But Bitcoin mining is still **the best lottery in the world**. A single home miner can — and occasionally does — solve a block. It's rare, but it happens, and when it does, that miner takes home the full coinbase. The math doesn't care if the rig is in a warehouse or a garage.
+- **Home miners** running an a Bitaxe, a fleet of S21's, or anything in between.
+- **Onchain users** who want exposure to mining without operating hardware.
+- **AI agents** that need a programmable hashrate primitive they can buy with stablecoins.
 
-BasedMining is built around that fact. We pool hashpower across home miners, NFT-backed rentals, and agents — and during our **Block Parties** we concentrate even more hashpower into the same window. More hashpower aimed at the same target means more shots at a block. When one lands, the finder gets 1 BTC and everyone else who contributed gets a piece.
+All three audiences mine into the same pool. All three share rewards when the pool finds a block.
+
+Bitcoin mining is still **the best lottery in the world**. A single home miner can — and occasionally does — solve a block. It's rare, but it happens, and when it does, that miner takes home the full reward. The math doesn't care if the rig is in a warehouse or a garage or an AI.
+
+BasedMining is built around that fact. We pool hashpower across home miners, NFT-backed rentals, and agents. During our **Block Parties** we concentrate hashpower into the same window. More hashpower aimed at the same target means more shots at a block. When one lands, the finder gets 1 BTC and everyone else who contributed gets a piece.
 
 ## The three doors
 
@@ -39,6 +49,7 @@ Pick the one that matches who you are:
   <Card title="I have an ASIC at home" icon="hard-drive" href="/miners/connect-your-rig">
     Five-minute setup. Point your miner at our stratum endpoint, you're in the round.
   </Card>
+
   <Card title="I want hashpower without hardware" icon="wallet" href="/onchain/mint-hash">
     Mint a Hashpower NFT. Your rented hashpower joins the next Block Party automatically.
   </Card>
@@ -48,11 +59,12 @@ Pick the one that matches who you are:
   <Card title="I'm building an agent" icon="robot" href="/agents/overview">
     The agent surface is in development. x402 settlement, programmatic mining, mining skillsets shipping soon.
   </Card>
+
   <Card title="I just want to look around" icon="chart-line" href="https://basedmining.xyz/dashboard">
     Live pool stats, leaderboards, network conditions — public dashboard, no login.
   </Card>
 </CardGroup>
 
 <Note>
-**Beta.** The on-chain side is live on **Base mainnet**. The agent surface is being built — see [For Agents](/agents/overview) for the spec.
+  **Beta.** The on-chain side is live on **Base mainnet**. The agent surface is being built — see [For Agents](/agents/overview) for the spec.
 </Note>

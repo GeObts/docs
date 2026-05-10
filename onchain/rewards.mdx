@@ -6,9 +6,9 @@ description: "How Hashpower NFT holders get paid — automatically, in cbBTC, on
 ## You don't have to claim anything
 
 <Warning>
-**There is no claim flow. There is no claim button. There is no portal to log into.**
+  **There is no claim flow. There is no claim button. There is no portal to log into.**
 
-When a block is found during your active Block Party window, cbBTC arrives in the wallet that minted your NFT. That's it.
+  When a block is found during your active Block Party window, cbBTC arrives in the wallet that minted your NFT. That's it.
 </Warning>
 
 ## How your slice is calculated
@@ -16,11 +16,11 @@ When a block is found during your active Block Party window, cbBTC arrives in th
 When the pool finds a block, the reward splits two ways:
 
 - **Finder reward (1 BTC)** — paid in BTC by the Bitcoin network, to the address that solved the block. Hashpower NFT mints don't compete for this — it goes to whoever physically solved the block.
-- **Pool remainder (~2.1 BTC + fees)** — split proportionally among **everyone who contributed work to that round**, including hardware miners, NFT-backed rentals, and (when live) agent-backed rentals.
+- **Pool remainder (~2.1 BTC \+ fees)** — split proportionally among **everyone who contributed work to that round**, including hardware miners, NFT-backed rentals, and (when live) agent-backed rentals.
 
 Your slice of the remainder is calculated by hashrate contribution:
 
-```
+```text
 your slice = (your hashrate during the round)
              ────────────────────────────────  × pool remainder
              (total pool hashrate during the round)
@@ -28,19 +28,27 @@ your slice = (your hashrate during the round)
 
 The remainder is converted to cbBTC and sent to your mint wallet on Base.
 
-## When you get paid
+## When you get paid:The BasedMining Payout Mechanism
 
-A block has to be found **during your tier's active window** for your NFT to earn from that block. Typical flow:
+Your Hashpower NFT represents a permanent contribution to the BasedMining pool. Every share of work your NFT contributes is recorded and remains active, entitling you to a proportional share of any block the pool finds, now or in the future.
 
-1. You mint. Your NFT queues for the next Block Party.
-2. Block Party starts. Your hashpower activates.
-3. During the window, the pool may or may not find a block (mining is probabilistic — see the [calculator](/calculator/overview) for live odds).
-4. If a block is found, your share of the remainder pays out in cbBTC to your wallet within ~24 hours.
-5. When your tier's duration ends, your hashpower deactivates. No further accrual from this mint.
+Here's how the payout flow works:
+
+[1.You](http://1.You) Mint: Your Hashpower NFT is minted, and its associated hashpower begins contributing to the pool.
+
+2.Contributions Recorded: Every valid share your NFT submits is permanently recorded, building up your proportional claim on future block rewards.
+
+3.Block Found: When the BasedMining pool successfully finds a Bitcoin block, the 1 BTC finder reward is immediately sent to the wallet of the miner who found the block (chain-enforced, as previously described).
+
+4.Remainder Distribution: The remaining block reward (approximately 2.1 BTC \+ fees) is then distributed proportionally among all NFT holders based on their cumulative contributions (recorded shares) up to the point the block was found.
+
+5.Payout: Your proportional share of the remainder is paid out in cbBTC directly to your wallet, typically within ~24 hours of the block being confirmed.
+
+Your contributions are cumulative and enduring.
 
 Hold multiple NFTs across multiple Block Parties to compound your shots at a block.
 
-## More NFTs = bigger slice + higher rank
+## More NFTs = bigger slice \+ higher rank
 
 Two effects when you mint more:
 
@@ -48,6 +56,7 @@ Two effects when you mint more:
   <Card title="Bigger payout slice" icon="bitcoin-sign">
     Your proportional share of the remainder scales linearly with your contributed hashpower. 2× the mints = 2× the slice (assuming same Block Party).
   </Card>
+
   <Card title="Higher leaderboard rank" icon="trophy">
     More hashpower moves you up the public Top Difficulties and Top Loyalty boards on the [dashboard](/dashboard/leaderboards). Special bonus rewards drop here occasionally.
   </Card>
@@ -55,11 +64,15 @@ Two effects when you mint more:
 
 ## What happens after my mint expires?
 
-The hashpower window ends when your tier's duration elapses. Your **NFT stays in your wallet permanently** — the art is yours forever. The hashpower window does not auto-renew; if you want another window, mint again for the next Block Party.
+When your Hashpower NFT tier's duration elapses, the associated hashpower window concludes. However, your NFT itself remains in your wallet permanently.
+
+Crucially, BasedMining NFTs are fully on-chain. This means the art, metadata, and all essential characteristics of your NFT are stored directly on the blockchain, not merely pointed to IPFS or other off-chain storage. Your digital asset is truly yours, secured by the network, and immune to external server dependencies or link rot.
+
+While the hashpower window does not auto-renew, your NFT's art is yours forever, a testament to your participation in the Sovereign Mining Renaissance. If you wish to activate another hashpower window, you can mint again for the next Block Party, continuing your contribution to the pool.
 
 ## Transferring your NFT
 
-The Hashpower NFT is a standard ERC-721 on Base and can be transferred or sold. **Note:** for currently-active mints, share-credit attribution is still bound to the original minter — transferring during an active window moves the art but not the active rental.
+The Hashpower NFT is a standard ERC-721 on Base and can be transferred or sold. **Note:** for currently-active mints, share-credit attribution is still bound to the original minter — transferring during an active window moves the art but not the active rental. If the pool finds a block during your NFT's active period, the BTC goes to the wallet derived from whoever minted it, not the current holder.
 
 If you want exposure to future Block Parties, mint a new one or wait for the secondary market.
 
@@ -69,6 +82,6 @@ Mining rewards may be taxable in your jurisdiction. We do not provide tax advice
 
 ## Next
 
-- **[How It Works](/how-it-works)** — the hybrid model in one page.
-- **[Dashboard](/dashboard/overview)** — watch the pool live.
-- **[FAQ](/faq)** — common reward questions.
+- [**How It Works**](/how-it-works) — the hybrid model in one page.
+- [**Dashboard**](/dashboard/overview) — watch the pool live.
+- [**FAQ**](/faq) — common reward questions.
