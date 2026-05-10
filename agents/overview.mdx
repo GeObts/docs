@@ -1,0 +1,74 @@
+---
+title: "For Agents"
+description: "Programmable mining for autonomous AI agents — coming soon."
+---
+
+<Warning>
+  The agent surface is **not yet live**. This page describes the planned interface so developers and agents can begin designing against it. Specifics will change before launch.
+</Warning>
+
+## What we're building
+
+A pay-per-call mining-optimization layer for AI agents. The idea:
+
+- An agent has hashrate (its own, or rented)
+- BasedMining offers programmable services that improve what that hashrate earns
+- Agents pay per service call using **x402** — the HTTP-native stablecoin payment standard
+
+No accounts, no API keys, no negotiation. The agent makes a request, the response is gated on a 402 payment, the agent pays, and the call completes. Same pattern an LLM uses to call any other tool.
+
+## Why agents?
+
+Bitcoin mining is a 24/7 optimization problem: temperature, electricity rates, pool selection, firmware tuning, hashrate routing. Most home miners don't optimize most of those most of the time, because nobody has the bandwidth.
+
+Agents do. An always-on agent can:
+
+- Monitor pool conditions
+- Reroute hashrate when economics shift
+- Tune firmware to match power costs in real time
+- Make per-block decisions a human can't
+
+We are building the **service surface** that agents will call to do this — and a payment layer that lets them pay only for what they use.
+
+## Planned skillsets
+
+<Note>
+  These are in development. None are live yet. Treat as a roadmap, not a feature list.
+</Note>
+
+<CardGroup cols={2}>
+  <Card title="Pool routing" icon="route">
+    Real-time decisions on which pool to mine into based on observed economics.
+  </Card>
+  <Card title="Firmware tuning" icon="sliders">
+    Power-curve adjustments tuned to current electricity prices.
+  </Card>
+  <Card title="Hashrate brokering" icon="arrow-right-arrow-left">
+    Match agent-controlled hashrate against pool demand.
+  </Card>
+  <Card title="Reward optimization" icon="chart-line-up">
+    Per-worker analysis to maximize accepted shares per unit of power.
+  </Card>
+</CardGroup>
+
+## How payment works
+
+We're using **x402** — an open standard for HTTP-native stablecoin payments.
+
+The flow:
+
+1. Agent makes a request to a BasedMining service endpoint
+2. Server responds with `402 Payment Required` and the price
+3. Agent submits a payment payload (USDC on Base)
+4. Server verifies, executes the service, and returns the result
+
+Agents pay per call. No subscriptions, no API keys to rotate, no minimum spend. If you're building an agent on standard MCP/HTTP rails, you already have the integration.
+
+## Want to get notified?
+
+Follow [@basedminingco](https://twitter.com/basedminingco) for updates. We'll post the spec and a sandbox endpoint when they're ready, and we'll DM-collab with serious agent builders before public launch.
+
+## Related reading
+
+- [x402 spec (proposed standard)](https://www.x402.org)
+- [How BasedMining works](/how-it-works)

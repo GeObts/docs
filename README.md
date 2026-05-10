@@ -1,55 +1,69 @@
-# Mintlify Starter Kit
+# BasedMining Docs (Mintlify)
 
-Use the starter kit to get your docs deployed and ready to customize.
+This folder contains the **public-facing** documentation for BasedMining, published to Mintlify.
 
-Click the green **Use this template** button at the top of this repo to copy the Mintlify starter kit. The starter kit contains examples with
+## What goes here
 
-- Guide pages
-- Navigation
-- Customizations
-- API reference pages
-- Use of popular components
+Public-friendly docs for three audiences:
 
-**[Follow the full quickstart guide](https://starter.mintlify.com/quickstart)**
+- **Miners** running ASICs at home
+- **On-chain users** participating via BasedPool NFTs on Base
+- **AI agents** (planned, not live yet)
 
-## AI-assisted writing
+## What does NOT go here
 
-Set up your AI coding tool to work with Mintlify:
+This folder is **public**. Do not put any of the following in it:
+
+- Server / VPS infrastructure details (Apollo, Vultr, NY VPS, ports, paths)
+- Internal ckpool config or operator runbooks
+- Rental agent / NiceHash routing internals
+- Database schemas, backup procedures, postgres configs
+- Anything from the existing `/docs` folder at the repo root
+
+Internal ops docs stay in the repo-root `/docs` folder. They are separate intentionally.
+
+## Local preview
 
 ```bash
-npx skills add https://mintlify.com/docs
-```
-
-This command installs Mintlify's documentation skill for your configured AI tools like Claude Code, Cursor, Windsurf, and others. The skill includes component reference, writing standards, and workflow guidance.
-
-See the [AI tools guides](/ai-tools) for tool-specific setup.
-
-## Development
-
-Install the [Mintlify CLI](https://www.npmjs.com/package/mint) to preview your documentation changes locally. To install, use the following command:
-
-```
 npm i -g mint
-```
-
-Run the following command at the root of your documentation, where your `docs.json` is located:
-
-```
+cd mintlify-docs
 mint dev
 ```
 
-View your local preview at `http://localhost:3000`.
+Opens a local preview at http://localhost:3000.
 
-## Publishing changes
+## Deploy
 
-Install our GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app) to propagate changes from your repo to your deployment. Changes are deployed to production automatically after pushing to the default branch.
+The site is hosted by Mintlify. Deployment is one of:
 
-## Need help?
+1. **GitHub-connected deploy.** If the Mintlify project is connected to a GitHub repo, push to the configured branch — Mintlify auto-deploys. Recommended.
+2. **Manual trigger via API.** After content is in the connected repo, call:
+   ```bash
+   curl -X POST https://api.mintlify.com/v1/project/update/<projectId> \
+     -H "Authorization: Bearer mint_<admin_api_key>"
+   ```
 
-### Troubleshooting
+## Structure
 
-- If your dev environment isn't running: Run `mint update` to ensure you have the most recent version of the CLI.
-- If a page loads as a 404: Make sure you are running in a folder with a valid `docs.json`.
+```
+mintlify-docs/
+├── docs.json              ← config: theme, navigation, colors
+├── introduction.mdx       ← landing page
+├── how-it-works.mdx       ← model overview
+├── quickstart.mdx         ← path picker for the three audiences
+├── miners/                ← ASIC operators
+├── onchain/               ← NFT holders
+├── agents/                ← AI agents (coming soon)
+├── faq.mdx
+├── glossary.mdx
+└── images/                ← logos, favicon
+```
 
-### Resources
-- [Mintlify documentation](https://mintlify.com/docs)
+## Editing tone
+
+Match the existing site's voice (see `BASEDMINING_DESIGN_BRIEF.md` at repo root):
+
+- Terse. Technical. No fluff.
+- Metric-first. Sentence case. All-caps for category labels.
+- Bitcoin is always capitalized. Base is the L2.
+- No emojis.

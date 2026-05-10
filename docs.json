@@ -1,72 +1,65 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mintlify Starter Kit",
+  "theme": "maple",
+  "name": "BasedMining",
+  "description": "A Bitcoin mining pool built for home miners, on-chain users, and AI agents.",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#F7931A",
+    "light": "#F7931A",
+    "dark": "#F7931A"
   },
-  "favicon": "/favicon.svg",
+  "background": {
+    "color": {
+      "dark": "#000000",
+      "light": "#FFFFFF"
+    }
+  },
+  "appearance": {
+    "default": "dark",
+    "strict": false
+  },
+  "favicon": "/images/favicon.svg",
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Documentation",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Welcome",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
+              "introduction",
+              "how-it-works",
+              "quickstart"
             ]
           },
           {
-            "group": "Customization",
+            "group": "For Miners",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "miners/overview",
+              "miners/connect-your-rig",
+              "miners/payouts"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "For On-Chain Users",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/components",
-              "essentials/reusable-snippets"
+              "onchain/overview",
+              "onchain/mint",
+              "onchain/dashboard",
+              "onchain/rewards"
             ]
           },
           {
-            "group": "Agent ready",
+            "group": "For Agents",
             "pages": [
-              "agent-ready/prompt",
-              "agent-ready/visibility",
-              "agent-ready/contextual",
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API reference",
-        "groups": [
-          {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction"
+              "agents/overview"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "Reference",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "faq",
+              "glossary"
             ]
           }
         ]
@@ -75,52 +68,47 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "Live Site",
+          "href": "https://basedmining.xyz",
+          "icon": "globe"
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "Twitter",
+          "href": "https://twitter.com/basedminingco",
+          "icon": "twitter"
         }
       ]
     }
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/images/logo-light.svg",
+    "dark": "/images/logo-dark.svg",
+    "href": "https://basedmining.xyz"
   },
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "label": "Mint NFT",
+        "href": "https://basedmining.xyz/mint"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Launch App",
+      "href": "https://basedmining.xyz"
     }
-  },
-  "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "x": "https://twitter.com/basedminingco",
+      "website": "https://basedmining.xyz"
     }
+  },
+  "seo": {
+    "metatags": {
+      "og:site_name": "BasedMining Docs",
+      "twitter:site": "@basedminingco"
+    },
+    "indexing": "navigable"
   }
 }

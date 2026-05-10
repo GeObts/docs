@@ -1,0 +1,79 @@
+---
+title: "How It Works"
+description: "BasedMining in one diagram and a few paragraphs — without the boring parts."
+---
+
+## The short version
+
+1. Miners point their hardware at the pool.
+2. The pool aggregates hashrate and submits work to the Bitcoin network.
+3. When a block is found, the reward is split among contributors based on the work they did.
+4. NFT holders on Base get their share of pool rewards through on-chain claims.
+5. Everything is transparent: hashrate, fee, and payouts are published live.
+
+That's it. The rest of this page is just detail.
+
+## The model
+
+<Steps>
+  <Step title="Hashrate comes in">
+    Hashrate enters the pool from three places:
+
+    - **Home miners** with their own hardware
+    - **NFT holders** whose mint contributes a backing share to the pool's operating capacity
+    - **External hashpower markets** routed in to keep the pool competitive during low-participation windows
+  </Step>
+  <Step title="Work gets coordinated">
+    The pool distributes mining work to all connected hashrate. Every share submitted is logged, attributed, and counted toward the contributor's payout.
+  </Step>
+  <Step title="Blocks get found">
+    When a connected miner finds a valid block, the pool submits it to the Bitcoin network. The pool earns the block reward + fees.
+  </Step>
+  <Step title="Rewards go out">
+    Rewards are paid to:
+
+    - Direct miners — to the BTC address registered on their worker
+    - NFT holders — claimable on Base via the dashboard
+  </Step>
+</Steps>
+
+## What makes BasedMining different
+
+<CardGroup cols={2}>
+  <Card title="Home-first" icon="house">
+    The pool is tuned for small miners. No minimum hashrate, no enterprise gating, no opaque scoring formulas.
+  </Card>
+  <Card title="On-chain rewards" icon="link">
+    NFT holders interact with mining the way they interact with everything else on Base — through their wallet.
+  </Card>
+  <Card title="Agent-ready" icon="robot">
+    The pool is being designed so AI agents can buy optimization services per-call using x402. More on that <a href="/agents/overview">here</a>.
+  </Card>
+  <Card title="Operator transparency" icon="eye">
+    We publish what we do. Hashrate, fee, blocks found, and payouts are live on the dashboard.
+  </Card>
+</CardGroup>
+
+## What we don't do
+
+<Warning>
+  We do not:
+  - Custody your hardware
+  - Custody your BTC payouts (they go straight to your address)
+  - Wrap your Bitcoin into a token
+  - Charge a setup fee
+  - Lock you into a contract
+</Warning>
+
+If you can plug in a miner, you can use BasedMining. If you can mint an NFT, you can use BasedMining.
+
+## Next
+
+<CardGroup cols={2}>
+  <Card title="Connect your rig" icon="hard-drive" href="/miners/connect-your-rig">
+    Five-minute hardware setup.
+  </Card>
+  <Card title="Mint a BasedPool NFT" icon="wallet" href="/onchain/mint">
+    On-chain access to pool rewards.
+  </Card>
+</CardGroup>

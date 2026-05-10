@@ -1,0 +1,96 @@
+---
+title: "FAQ"
+description: "Quick answers to the questions everyone asks first."
+---
+
+## General
+
+<AccordionGroup>
+  <Accordion title="Is BasedMining a real Bitcoin mining pool?">
+    Yes. We point hashrate at the Bitcoin network and earn block rewards. The on-chain side (BasedPool NFTs on Base) is how we let people without hardware participate.
+  </Accordion>
+  <Accordion title="Why Base?">
+    Base is fast, cheap, and built by Coinbase — which means a smooth on-ramp for new on-chain users. Mining is a Bitcoin activity, but the rewards layer for non-hardware participants lives where it's easiest to use.
+  </Accordion>
+  <Accordion title="Are you on mainnet yet?">
+    The on-chain side launched on **Base Sepolia** (testnet) first. Mainnet follows after audit and a soak period.
+  </Accordion>
+  <Accordion title="Who runs BasedMining?">
+    Independent operators. We are not a custodial exchange and we are not VC-backed. The pool is run by people who actually mine.
+  </Accordion>
+</AccordionGroup>
+
+## For miners
+
+<AccordionGroup>
+  <Accordion title="What ASICs are supported?">
+    Anything that speaks standard stratum. Apollo, Bitaxe, S19, S21, Whatsminer, Avalon — they all work.
+  </Accordion>
+  <Accordion title="What's the minimum hashrate?">
+    There is no minimum. A single Bitaxe is welcome.
+  </Accordion>
+  <Accordion title="What fee does the pool charge?">
+    The current fee is published live on the [dashboard](https://basedmining.xyz). It is competitive with major pools.
+  </Accordion>
+  <Accordion title="When do I get paid?">
+    Payouts go out on a regular cadence whenever your unpaid balance crosses the network-fee threshold. You can monitor this in real time on the dashboard.
+  </Accordion>
+  <Accordion title="Can I use an exchange address as my BTC payout address?">
+    Technically yes, practically no. Exchanges sometimes refuse small inbound transactions, change deposit addresses without warning, or treat mining payouts as suspicious. Use a self-custody wallet.
+  </Accordion>
+  <Accordion title="Why aren't my shares showing up?">
+    See the [troubleshooting section](/miners/connect-your-rig#troubleshooting) on the Connect Your Rig page.
+  </Accordion>
+</AccordionGroup>
+
+## For on-chain users
+
+<AccordionGroup>
+  <Accordion title="What does a BasedPool NFT actually do?">
+    It entitles the holder to a proportional share of pool rewards distributed on Base.
+  </Accordion>
+  <Accordion title="Can I sell my BasedPool NFT?">
+    Yes. It's a standard NFT — transferable, marketplace-compatible. Future rewards follow the new owner; previously accrued rewards stay with the address that earned them.
+  </Accordion>
+  <Accordion title="How often do rewards distribute?">
+    Pool rewards flow into the on-chain pool on a regular cadence. Your share accrues continuously and is claimable on the dashboard.
+  </Accordion>
+  <Accordion title="Why do I need ETH on Base?">
+    For gas. Base gas is cheap (cents on mainnet, free on Sepolia faucets) but you need a small amount to interact.
+  </Accordion>
+  <Accordion title="Is this a security?">
+    No. A BasedPool NFT is a non-custodial receipt of participation in a mining pool — analogous to a worker registration with a traditional pool, just on-chain. We are not soliciting investment, promising returns, or running a fund.
+  </Accordion>
+</AccordionGroup>
+
+## For agents
+
+<AccordionGroup>
+  <Accordion title="Is the agent API live?">
+    Not yet. We're publishing the design and accepting feedback from agent builders. Check **[For Agents](/agents/overview)** for the planned interface.
+  </Accordion>
+  <Accordion title="What's x402 again?">
+    An open HTTP-native standard for stablecoin micropayments. The server returns `402 Payment Required`, the client pays, the call completes. Read more at [x402.org](https://www.x402.org).
+  </Accordion>
+  <Accordion title="Can I integrate before launch?">
+    Reach out on [@basedminingco](https://twitter.com/basedminingco) — we're working with a small set of agent builders before public release.
+  </Accordion>
+</AccordionGroup>
+
+## Safety and trust
+
+<AccordionGroup>
+  <Accordion title="Could you steal my BTC?">
+    No. We never custody miner payouts — they go directly from block rewards to the BTC address you registered. We can't redirect your payouts elsewhere.
+  </Accordion>
+  <Accordion title="What about the on-chain side?">
+    BasedPool NFTs and reward distribution are governed by smart contracts on Base. They are public and verifiable. Audit precedes mainnet.
+  </Accordion>
+  <Accordion title="What if BasedMining goes offline?">
+    Your hardware is yours. Repoint at any other stratum URL and you're mining elsewhere within 30 seconds. Your BTC payouts to-date are already in your wallet — they don't depend on the pool staying up.
+  </Accordion>
+</AccordionGroup>
+
+## Still have questions?
+
+Hit us up on [@basedminingco](https://twitter.com/basedminingco). DMs are open.

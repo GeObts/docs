@@ -1,0 +1,89 @@
+---
+title: "Glossary"
+description: "Mining and on-chain terms in plain English."
+---
+
+If you're new to mining or on-chain, these are the words that come up most.
+
+## Mining
+
+<AccordionGroup>
+  <Accordion title="ASIC">
+    Application-Specific Integrated Circuit. A chip designed to do one thing — in this case, hash Bitcoin's SHA-256 algorithm. ASICs are vastly more efficient than GPUs or CPUs at this work.
+  </Accordion>
+  <Accordion title="Hashrate">
+    How much hashing your miner does per second. Measured in H/s, KH/s, MH/s, GH/s, TH/s, PH/s, EH/s. A modern home ASIC does TH/s (terahashes per second). The whole Bitcoin network does ~600 EH/s.
+  </Accordion>
+  <Accordion title="Stratum">
+    The standard protocol miners use to talk to pools. When you point your ASIC at `stratum+tcp://...`, you're using stratum.
+  </Accordion>
+  <Accordion title="Worker">
+    A label for one mining device. If you run three ASICs, each is a worker. They share the same BTC payout address but have different worker names so you can tell them apart on the dashboard.
+  </Accordion>
+  <Accordion title="Share">
+    A proof-of-work submission from a miner. Each share is a hash that meets the pool's difficulty target (lower than Bitcoin's network difficulty). The pool counts shares to attribute work fairly.
+  </Accordion>
+  <Accordion title="Block">
+    A block is what miners actually find. When the pool finds one, it earns the block subsidy (currently 3.125 BTC) plus transaction fees, and distributes that to contributors.
+  </Accordion>
+  <Accordion title="Pool fee">
+    A small percentage the pool keeps from each block reward to cover infrastructure and development.
+  </Accordion>
+  <Accordion title="Solo vs pool mining">
+    Solo: you mine alone and keep 100% of any block you find — but small miners may go years without finding one. Pool: you join a group, your share counts toward the pool's collective work, and you get steady small payouts.
+  </Accordion>
+</AccordionGroup>
+
+## Bitcoin
+
+<AccordionGroup>
+  <Accordion title="BTC">
+    The native asset of the Bitcoin network. What miners earn. What the pool pays out.
+  </Accordion>
+  <Accordion title="Block subsidy / block reward">
+    The fixed BTC amount minted with each new block. Currently 3.125 BTC. Halves roughly every four years.
+  </Accordion>
+  <Accordion title="Difficulty">
+    A network parameter that adjusts how hard it is to find a valid block, automatically retargeting every 2016 blocks (~2 weeks) to keep block time near 10 minutes.
+  </Accordion>
+</AccordionGroup>
+
+## On-chain (Base / EVM)
+
+<AccordionGroup>
+  <Accordion title="Base">
+    Coinbase's L2 — a fast, cheap blockchain that settles to Ethereum. BasedMining's on-chain side runs on Base.
+  </Accordion>
+  <Accordion title="Base Sepolia">
+    The testnet version of Base. Used for testing without real money. Get test ETH from any Base Sepolia faucet.
+  </Accordion>
+  <Accordion title="Wallet">
+    A piece of software (or hardware) that holds your private keys. Examples: Rainbow, Coinbase Wallet, MetaMask, Frame. You need one to interact with on-chain BasedMining.
+  </Accordion>
+  <Accordion title="NFT">
+    Non-Fungible Token. A unique on-chain record. A BasedPool NFT represents your participation share in the pool.
+  </Accordion>
+  <Accordion title="Gas">
+    The fee you pay to make any transaction on an EVM chain. Base gas is very cheap (often less than a cent on mainnet, free on testnet faucets).
+  </Accordion>
+  <Accordion title="Mint">
+    The act of creating a new on-chain item — in our case, a BasedPool NFT. You pay the mint price + gas, the contract creates the NFT and assigns it to your wallet.
+  </Accordion>
+  <Accordion title="Claim">
+    Withdrawing the rewards your NFT has accrued. A wallet transaction that transfers the rewards into your address.
+  </Accordion>
+</AccordionGroup>
+
+## Agents and payments
+
+<AccordionGroup>
+  <Accordion title="x402">
+    An open HTTP standard for paying for API calls with stablecoins. The server returns HTTP 402, the client pays, the call completes. See [x402.org](https://www.x402.org).
+  </Accordion>
+  <Accordion title="Stablecoin">
+    A token pegged to a fiat currency (typically USD). USDC on Base is the canonical example.
+  </Accordion>
+  <Accordion title="Agent">
+    Here, an autonomous program (often LLM-driven) that can take actions, including mining decisions and payments, without human intervention per call.
+  </Accordion>
+</AccordionGroup>
