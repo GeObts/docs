@@ -1,0 +1,47 @@
+---
+title: "Mining with Hardware"
+description: "What to expect when you point a miner at BasedMining."
+---
+
+If you have a Bitcoin ASIC at home — an Apollo, a Bitaxe, an S19, anything — BasedMining is built for you.
+
+## What you get
+
+<CardGroup cols={2}>
+  <Card title="Direct BTC payouts" icon="bitcoin-sign">
+    Rewards are paid in BTC to the address you register. We don't custody your funds.
+  </Card>
+  <Card title="No minimum hashrate" icon="gauge-low">
+    Run one Bitaxe or twenty S19s — the pool treats you the same.
+  </Card>
+  <Card title="Live stats per worker" icon="chart-line">
+    Watch your hashrate, share count, and accepted/rejected ratio in real time.
+  </Card>
+  <Card title="Stratum-compatible" icon="plug">
+    Standard stratum protocol — works with any compliant ASIC firmware.
+  </Card>
+</CardGroup>
+
+## How it works for you
+
+<Steps>
+  <Step title="Configure your miner">
+    Point your ASIC at the pool's stratum endpoint, set your BTC address as the worker username, and pick any worker name you like.
+  </Step>
+  <Step title="Start hashing">
+    The pool sees your shares the moment they start arriving. You'll show up on the live dashboard within a minute or two.
+  </Step>
+  <Step title="Get paid">
+    When the pool finds blocks, your share of the reward is paid to the BTC address you registered.
+  </Step>
+</Steps>
+
+## What you need before starting
+
+<Check>A Bitcoin ASIC running compatible firmware (most modern firmware is fine — Braiins OS, vanilla, BraiinsOS+, ePIC, etc.)</Check>
+<Check>A Bitcoin wallet address you control — never use an exchange deposit address</Check>
+<Check>A wired internet connection (Wi-Fi works but is not recommended for ASICs)</Check>
+
+## Ready?
+
+Go to **[Connect Your Rig](/miners/connect-your-rig)** for the configuration walkthrough.

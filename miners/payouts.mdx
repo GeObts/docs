@@ -1,0 +1,53 @@
+---
+title: "Payouts"
+description: "When and how miners get paid."
+---
+
+## How payouts work
+
+When the pool finds a Bitcoin block, the reward is split among everyone who contributed work since the last block. Your share is proportional to the work your miner did, attributed by the shares it submitted.
+
+Payouts go directly to the BTC address you set as your worker username. We don't hold them, we don't wrap them, we don't make you log in to claim them.
+
+## Frequency
+
+Payouts are sent on a regular cadence whenever your unpaid balance crosses the network-fee threshold. You can watch your balance accrue in real time on the [dashboard](https://basedmining.xyz).
+
+<Note>
+  Tiny miners (a single Bitaxe, for example) accrue rewards more slowly than big rigs — the math is the same, but the absolute number is smaller. This is expected and not a bug.
+</Note>
+
+## Fee
+
+BasedMining charges a low pool fee, deducted from rewards before payout. The current fee is published on the [dashboard](https://basedmining.xyz). We are committed to keeping it competitive with the major pools while reinvesting into the home-miner experience.
+
+## What you'll see
+
+<CardGroup cols={2}>
+  <Card title="Pending balance" icon="hourglass">
+    Rewards earned but not yet sent. Updates as the pool processes blocks.
+  </Card>
+  <Card title="Paid balance" icon="circle-check">
+    Total BTC sent to your address since you joined.
+  </Card>
+  <Card title="Payout history" icon="list">
+    Each on-chain BTC transaction we sent you, with the txid.
+  </Card>
+  <Card title="Worker stats" icon="chart-line">
+    Hashrate, share count, accepted vs rejected — per worker.
+  </Card>
+</CardGroup>
+
+## Important notes
+
+<Warning>
+  **Use a wallet you control.** Sending payouts to an exchange deposit address is risky — exchanges sometimes silently change deposit addresses, refuse small transactions, or deactivate accounts. If you must use an exchange, check their address rules first. Better: use a self-custody wallet like Sparrow, BlueWallet, or a hardware wallet.
+</Warning>
+
+<Warning>
+  **Test with a small rig first.** If this is your first time mining to a pool, start with a Bitaxe or one ASIC for a day. Confirm payouts arrive, then scale up.
+</Warning>
+
+## Questions
+
+See the **[FAQ](/faq)** for the most common payout questions, or reach out on [@basedminingco](https://twitter.com/basedminingco).
