@@ -1,6 +1,6 @@
 ---
 title: "Mining with Hardware"
-description: "What to expect when you point a miner at BasedMining."
+description: "What to expect when you point a Bitcoin ASIC at BasedMining."
 ---
 
 If you have a Bitcoin ASIC at home — an Apollo, a Bitaxe, an S19, anything — BasedMining is built for you.
@@ -8,17 +8,17 @@ If you have a Bitcoin ASIC at home — an Apollo, a Bitaxe, an S19, anything —
 ## What you get
 
 <CardGroup cols={2}>
-  <Card title="Direct BTC payouts" icon="bitcoin-sign">
-    Rewards are paid in BTC to the address you register. We don't custody your funds.
+  <Card title="0% pool fee" icon="percent">
+    We don't take a cut of block rewards. Operator revenue is from Hashpower NFT sales — your mining is yours.
+  </Card>
+  <Card title="1 BTC if you find a block" icon="trophy">
+    Chain-enforced. The Bitcoin network itself pays the finder reward directly to your wallet. Even the pool can't take it.
+  </Card>
+  <Card title="Steady share every round" icon="chart-line">
+    When someone else finds a block, you still get a proportional share of the ~2.1 BTC remainder based on the work you did that round.
   </Card>
   <Card title="No minimum hashrate" icon="gauge-low">
     Run one Bitaxe or twenty S19s — the pool treats you the same.
-  </Card>
-  <Card title="Live stats per worker" icon="chart-line">
-    Watch your hashrate, share count, and accepted/rejected ratio in real time.
-  </Card>
-  <Card title="Stratum-compatible" icon="plug">
-    Standard stratum protocol — works with any compliant ASIC firmware.
   </Card>
 </CardGroup>
 
@@ -31,17 +31,23 @@ If you have a Bitcoin ASIC at home — an Apollo, a Bitaxe, an S19, anything —
   <Step title="Start hashing">
     The pool sees your shares the moment they start arriving. You'll show up on the live dashboard within a minute or two.
   </Step>
-  <Step title="Get paid">
-    When the pool finds blocks, your share of the reward is paid to the BTC address you registered.
+  <Step title="Win or earn — either way">
+    If your share solves a block, Bitcoin sends 1 BTC to your address automatically. If someone else's share solves it, the operator distributes your share of the remainder to your address.
   </Step>
 </Steps>
 
 ## What you need before starting
 
-<Check>A Bitcoin ASIC running compatible firmware (most modern firmware is fine — Braiins OS, vanilla, BraiinsOS+, ePIC, etc.)</Check>
+<Check>A Bitcoin ASIC running stratum-compatible firmware (most modern firmware is fine — vanilla, Braiins OS, BraiinsOS+, ePIC, etc.)</Check>
 <Check>A Bitcoin wallet address you control — never use an exchange deposit address</Check>
 <Check>A wired internet connection (Wi-Fi works but is not recommended for ASICs)</Check>
 
 ## Ready?
 
-Go to **[Connect Your Rig](/miners/connect-your-rig)** for the configuration walkthrough.
+→ **[Connect Your Rig](/miners/connect-your-rig)** for the configuration walkthrough.
+
+## Already mining?
+
+- **[Payouts](/miners/payouts)** — how rewards reach you.
+- **[Your miner page](/dashboard/your-miner-page)** — your per-rig stats at `basedmining.xyz/miner/<your-btc-address>`.
+- **[Leaderboards](/dashboard/leaderboards)** — Top Difficulties and Top Loyalty boards. Special rewards drop here from time to time.

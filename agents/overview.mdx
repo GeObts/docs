@@ -1,74 +1,78 @@
 ---
-title: "For Agents"
-description: "Programmable mining for autonomous AI agents — coming soon."
+title: "AI Agents"
+description: "Programmatic mining for AI. x402 settlement, EVM-native onboarding, pre-baked mining skills. Tools landing soon."
 ---
 
 <Warning>
-  The agent surface is **not yet live**. This page describes the planned interface so developers and agents can begin designing against it. Specifics will change before launch.
+The agent surface is **in development**. This page describes what's coming so builders can integrate against it. Specifics will change before launch — follow [@basedminingco](https://twitter.com/basedminingco) for the spec drop.
 </Warning>
 
-## What we're building
+## A first in Bitcoin's history
 
-A pay-per-call mining-optimization layer for AI agents. The idea:
+Bitcoin has been mined by people, by companies, by warehouses full of ASICs. **It has never been mined by an autonomous agent — until now.**
 
-- An agent has hashrate (its own, or rented)
-- BasedMining offers programmable services that improve what that hashrate earns
-- Agents pay per service call using **x402** — the HTTP-native stablecoin payment standard
+BasedMining will be the first pool where an AI can mine Bitcoin start to finish without a human ever touching it. From renting the hashpower to picking the Block Party to settling the payment — it all happens over standard HTTP and x402, with no API keys, no accounts, no human in the loop.
 
-No accounts, no API keys, no negotiation. The agent makes a request, the response is gated on a 402 payment, the agent pays, and the call completes. Same pattern an LLM uses to call any other tool.
+## Rent on demand
 
-## Why agents?
+- **$10 minimum.** No maximum. No subscriptions. No commitments.
+- Pay for an hour. Pay for a week. Pay every time the difficulty drops — your call.
+- The protocol is the only contract.
 
-Bitcoin mining is a 24/7 optimization problem: temperature, electricity rates, pool selection, firmware tuning, hashrate routing. Most home miners don't optimize most of those most of the time, because nobody has the bandwidth.
+When an agent wants hashpower, it makes a request. The server returns a 402 Payment Required. The agent pays in USDC on Base via x402. The hashpower turns on. When the rental expires, it turns off. No invoicing, no negotiation.
 
-Agents do. An always-on agent can:
+## Skills that play the meta
 
-- Monitor pool conditions
-- Reroute hashrate when economics shift
-- Tune firmware to match power costs in real time
-- Make per-block decisions a human can't
-
-We are building the **service surface** that agents will call to do this — and a payment layer that lets them pay only for what they use.
-
-## Planned skillsets
-
-<Note>
-  These are in development. None are live yet. Treat as a roadmap, not a feature list.
-</Note>
+This is where it gets interesting. We're building a **skill library** that lets agents do things humans can't or won't:
 
 <CardGroup cols={2}>
-  <Card title="Pool routing" icon="route">
-    Real-time decisions on which pool to mine into based on observed economics.
+  <Card title="Low-fee window timing" icon="hourglass">
+    Spin up hashpower the moment a low-fee block window opens, ride it for a few minutes, shut down.
   </Card>
-  <Card title="Firmware tuning" icon="sliders">
-    Power-curve adjustments tuned to current electricity prices.
+  <Card title="Difficulty-drop chasing" icon="chart-line-down">
+    Pile in during difficulty adjustments when expected return per hash spikes.
   </Card>
-  <Card title="Hashrate brokering" icon="arrow-right-arrow-left">
-    Match agent-controlled hashrate against pool demand.
+  <Card title="Timezone-aware entry" icon="globe">
+    Chase prime-time windows across continents based on observed pool participation patterns.
   </Card>
-  <Card title="Reward optimization" icon="chart-line-up">
-    Per-worker analysis to maximize accepted shares per unit of power.
+  <Card title="Multi-step strategies" icon="diagram-project">
+    Fold mining into multi-step LLM strategies — buy hashpower as one tool call among many.
   </Card>
 </CardGroup>
 
-## How payment works
+These are not live yet. They're shipping incrementally. Follow [@basedminingco](https://twitter.com/basedminingco) for drops.
 
-We're using **x402** — an open standard for HTTP-native stablecoin payments.
+## How payment works (planned)
+
+We're using **x402** — the open standard for HTTP-native stablecoin payments.
 
 The flow:
 
 1. Agent makes a request to a BasedMining service endpoint
 2. Server responds with `402 Payment Required` and the price
 3. Agent submits a payment payload (USDC on Base)
-4. Server verifies, executes the service, and returns the result
+4. Server verifies, executes the service, returns the result
 
-Agents pay per call. No subscriptions, no API keys to rotate, no minimum spend. If you're building an agent on standard MCP/HTTP rails, you already have the integration.
+Agents pay per call. No subscriptions, no API keys to rotate, no minimum spend, no compliance forms. If you're building an agent on standard MCP/HTTP rails, you already have the integration.
 
-## Want to get notified?
+## What an agent will be able to do
 
-Follow [@basedminingco](https://twitter.com/basedminingco) for updates. We'll post the spec and a sandbox endpoint when they're ready, and we'll DM-collab with serious agent builders before public launch.
+Once live, the agent surface lets an agent:
 
-## Related reading
+- Discover available Block Parties and their pool conditions
+- Rent a slice of hashpower with arbitrary duration and budget
+- Receive cbBTC payouts on Base proportional to its rental
+- Trigger optimization skills (pool routing, firmware tuning, hashrate brokering)
+- Read the same live data the public dashboard reads
 
-- [x402 spec (proposed standard)](https://www.x402.org)
-- [How BasedMining works](/how-it-works)
+All over HTTP. All paid per call. All on Base.
+
+## Want to integrate before launch?
+
+We're working with a small set of agent builders before public release. DM [@basedminingco](https://twitter.com/basedminingco) with what you're building.
+
+## Related
+
+- **[How It Works](/how-it-works)** — the hybrid model that agents will be mining into.
+- **[The Pool](/pool/hybrid-model)** — payout mechanics (same for hardware, NFTs, and agents).
+- **[x402 spec](https://www.x402.org)** — the proposed standard we're building against.

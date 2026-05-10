@@ -1,79 +1,92 @@
 ---
 title: "How It Works"
-description: "BasedMining in one diagram and a few paragraphs — without the boring parts."
+description: "Hybrid lottery pool in one page. No claim flow, no operator fee, no fluff."
 ---
 
 ## The short version
 
-1. Miners point their hardware at the pool.
-2. The pool aggregates hashrate and submits work to the Bitcoin network.
-3. When a block is found, the reward is split among contributors based on the work they did.
-4. NFT holders on Base get their share of pool rewards through on-chain claims.
-5. Everything is transparent: hashrate, fee, and payouts are published live.
+1. Miners — hardware, NFT-backed rentals, and (soon) agents — point hashpower at the pool.
+2. The pool aggregates that hashpower and works the current Bitcoin block.
+3. When a block is found:
+   - **The miner who solved it gets 1 BTC**, paid directly by the Bitcoin protocol.
+   - **The remaining ~2.1+ BTC + fees** is split proportionally among everyone who contributed to that round.
+4. **0% operator fee** on block rewards. The pool earns from Hashpower NFT sales, not from your mining.
+5. Payouts go out automatically. There is no "claim" button anywhere.
 
-That's it. The rest of this page is just detail.
+That's the whole thing. The rest of this page is just detail.
 
-## The model
+## The hybrid model
 
-<Steps>
-  <Step title="Hashrate comes in">
-    Hashrate enters the pool from three places:
+Most mining pools are one of two flavors:
 
-    - **Home miners** with their own hardware
-    - **NFT holders** whose mint contributes a backing share to the pool's operating capacity
-    - **External hashpower markets** routed in to keep the pool competitive during low-participation windows
-  </Step>
-  <Step title="Work gets coordinated">
-    The pool distributes mining work to all connected hashrate. Every share submitted is logged, attributed, and counted toward the contributor's payout.
-  </Step>
-  <Step title="Blocks get found">
-    When a connected miner finds a valid block, the pool submits it to the Bitcoin network. The pool earns the block reward + fees.
-  </Step>
-  <Step title="Rewards go out">
-    Rewards are paid to:
+- **Solo pools** — finder takes everything; everyone else gets zero. Great if you win, brutal if you don't.
+- **Traditional pools (PPS / FPPS)** — finder gets nothing extra; everything is split smoothly. Steady, but you never get a big hit.
 
-    - Direct miners — to the BTC address registered on their worker
-    - NFT holders — claimable on Base via the dashboard
-  </Step>
-</Steps>
+BasedMining is **hybrid**:
 
-## What makes BasedMining different
+- **Finder reward: fixed 1 BTC**, paid by Bitcoin itself via the coinbase transaction. Chain-enforced — even the pool operator can't reroute it.
+- **Pool remainder: ~2.1+ BTC + fees**, distributed proportionally to everyone who contributed work to that round, by accepted-share difficulty (PPLNS-by-diff).
 
-<CardGroup cols={2}>
-  <Card title="Home-first" icon="house">
-    The pool is tuned for small miners. No minimum hashrate, no enterprise gating, no opaque scoring formulas.
+So you get the upside of solo (a real shot at 1 BTC) plus the steady accrual of a traditional pool (your share of every block the pool finds).
+
+See [The Hybrid Model](/pool/hybrid-model) for the deep dive, or [Pool Comparisons](/pool/comparison) for how this stacks up against solo and PPS pools.
+
+## Where hashpower comes from
+
+<CardGroup cols={3}>
+  <Card title="Home miners" icon="hard-drive">
+    Anyone running an ASIC — Apollo, Bitaxe, S19, S21, Whatsminer — pointing at our stratum endpoint.
   </Card>
-  <Card title="On-chain rewards" icon="link">
-    NFT holders interact with mining the way they interact with everything else on Base — through their wallet.
+  <Card title="Hashpower NFTs" icon="sparkles">
+    NFT mints rent real spot-market hashpower and route it to the pool for the duration of a Block Party.
   </Card>
-  <Card title="Agent-ready" icon="robot">
-    The pool is being designed so AI agents can buy optimization services per-call using x402. More on that <a href="/agents/overview">here</a>.
-  </Card>
-  <Card title="Operator transparency" icon="eye">
-    We publish what we do. Hashrate, fee, blocks found, and payouts are live on the dashboard.
+  <Card title="Agents (soon)" icon="robot">
+    Programmatic hashpower purchases from AI agents, settled via x402. Mining skillsets shipping soon.
   </Card>
 </CardGroup>
 
-## What we don't do
+## Rounds and Block Parties
+
+<Steps>
+  <Step title="A round is open">
+    A round starts the moment the previous block was approved. Every share submitted while the round is open counts toward your share of the eventual reward.
+  </Step>
+  <Step title="The pool finds a block">
+    A miner connected to the pool finds a valid block and submits it to Bitcoin. The 1 BTC finder reward is paid by the Bitcoin protocol — no operator action needed.
+  </Step>
+  <Step title="The remainder is distributed">
+    The pool wallet receives the ~2.1+ BTC remainder on-chain. The operator broadcasts a single Bitcoin transaction splitting it among contributors proportional to their work.
+  </Step>
+  <Step title="The next round opens">
+    The cycle resets. Your shares from the previous round don't carry over — the round model rewards work done in the most recent window.
+  </Step>
+</Steps>
+
+**Block Parties** are scheduled 24-hour events where the pool concentrates extra hashpower (Hashpower NFT mints activate during these windows) into a single round. More hashpower in the same round = better odds of finding a block. Every Hashpower NFT mint auto-queues for the next Block Party.
+
+## What you don't have to do
 
 <Warning>
-  We do not:
-  - Custody your hardware
-  - Custody your BTC payouts (they go straight to your address)
-  - Wrap your Bitcoin into a token
-  - Charge a setup fee
-  - Lock you into a contract
+There is no "claim" button anywhere on BasedMining.
 </Warning>
 
-If you can plug in a miner, you can use BasedMining. If you can mint an NFT, you can use BasedMining.
+- **Hardware miners** receive BTC payouts directly to the address they registered as their worker username. We don't custody it.
+- **Hashpower NFT holders** receive cbBTC payouts on Base proportional to the hashpower their NFT contributed. Sent directly. No claim, no approval, no wallet interaction.
+- **Agents** (when live) will receive payouts to the address attached to their x402 settlement payload.
 
-## Next
+## What you can do
 
 <CardGroup cols={2}>
-  <Card title="Connect your rig" icon="hard-drive" href="/miners/connect-your-rig">
-    Five-minute hardware setup.
+  <Card title="Connect a miner" icon="plug" href="/miners/connect-your-rig">
+    Five-minute setup. You're contributing as soon as your first share lands.
   </Card>
-  <Card title="Mint a BasedPool NFT" icon="wallet" href="/onchain/mint">
-    On-chain access to pool rewards.
+  <Card title="Mint Hashpower" icon="sparkles" href="/onchain/mint-hash">
+    Four tiers from $15 to $250. Pay in ETH, USDC, or cbBTC.
+  </Card>
+  <Card title="Watch the live dashboard" icon="chart-line" href="/dashboard/overview">
+    Pool hashrate, leaderboards, network conditions — public.
+  </Card>
+  <Card title="Calculate your odds" icon="calculator" href="/calculator/overview">
+    Plug in a hashrate, see your probabilistic shot at the next block.
   </Card>
 </CardGroup>

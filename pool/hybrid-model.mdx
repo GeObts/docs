@@ -1,0 +1,97 @@
+---
+title: "The Hybrid Model"
+description: "How BasedMining pays out: 1 BTC to the finder + remainder shared among contributors. 0% fee."
+---
+
+BasedMining is a **hybrid lottery pool**. Every block the pool finds pays in two parts:
+
+<CardGroup cols={2}>
+  <Card title="Finder reward — 1 BTC" icon="trophy">
+    Goes to the miner whose share solved the block. Paid by the Bitcoin network itself, chain-enforced, instant.
+  </Card>
+  <Card title="Pool remainder — ~2.1+ BTC + fees" icon="users">
+    Split proportionally among every miner who contributed to that round. Sent on-chain to your address. Automatic.
+  </Card>
+</CardGroup>
+
+This is unusual. Most pools are either "winner-take-all" (solo) or "everyone shares everything smoothly" (PPS / FPPS). We do both at once — and we don't take a fee on either side.
+
+## The split, in numbers
+
+Current Bitcoin block subsidy is **3.125 BTC**, plus whatever transaction fees the block carries.
+
+| Recipient | Amount |
+| --- | --- |
+| **Finder** (the miner who solved the block) | **1.00 BTC** fixed |
+| **All contributors** to the round (proportional to work done) | ~2.125 BTC + tx fees |
+| **Pool operator fee** | **0%** |
+
+The pool keeps **nothing** from block rewards. Operator revenue is from Hashpower NFT sales.
+
+## How the 1 BTC finder reward works
+
+When a miner connects to BasedMining, the pool sends them a *coinbase template* — the transaction that pays out the block reward. That template has the 1 BTC finder output already pointed at the miner's own wallet (the address used as their stratum username) and the remainder pointed at the pool wallet.
+
+If the miner tampers with the coinbase to reroute funds, their share no longer solves the block — Bitcoin consensus rejects it. So **the only way to win the block is to leave the 1 BTC pointed at yourself**. The Bitcoin network enforces it. The pool operator literally cannot reroute the finder reward, even if they wanted to.
+
+This means the finder reward is **trustless**. You don't have to take our word for it — anyone with a Bitcoin node can connect to our stratum, capture the coinbase template, and decode it.
+
+## How the remainder gets shared
+
+Once the pool finds a block, the remainder lands in the pool wallet on-chain. The operator runs the round through the payout simulator, which calculates each contributor's share based on:
+
+```
+your share = (your accepted-share difficulty during the round)
+             ────────────────────────────────────────────────  × pool remainder
+             (total accepted-share difficulty during the round)
+```
+
+This is **PPLNS-by-diff** (pay-per-last-N-shares, weighted by difficulty). The harder your shares, the bigger your slice.
+
+Once verified, the operator broadcasts a single Bitcoin transaction that sends each contributor their share directly to the BTC address they registered. No claiming. No portal. No login.
+
+For onchain participants (Hashpower NFT holders), the equivalent flow sends cbBTC on Base to the address that minted the NFT — same proportional math, different settlement chain.
+
+## Rounds
+
+A *round* is the time between two found blocks.
+
+- **Round opens** the moment the previous block is approved.
+- **Every accepted share** during the open round counts toward that round's distribution.
+- **Round closes** when the next block is found.
+- **Next round opens** immediately.
+
+Shares from a previous round don't carry forward. The model rewards work done in the most recent window.
+
+## Why this design
+
+<AccordionGroup>
+  <Accordion title="It keeps the lottery feel alive">
+    A solo miner pointing a single Bitaxe at a traditional pool will never see anything dramatic happen — at best, a tiny payout every block. With our hybrid model, that same Bitaxe has a real (if small) shot at 1 BTC. That's a life-changing outcome from a single device, and it's exactly the magic that brought most of us to Bitcoin mining in the first place.
+  </Accordion>
+  <Accordion title="It still pays steady">
+    The proportional split of the remainder means you get *something* from every block the pool finds, not just the ones you happen to solve. Steady accrual + lottery upside.
+  </Accordion>
+  <Accordion title="It's trustless on the finder side">
+    The 1 BTC finder reward is enforced by Bitcoin itself. The operator can't take it, can't delay it, can't redirect it. This is the strongest possible payout guarantee in mining.
+  </Accordion>
+  <Accordion title="It scales across audiences">
+    The same model works whether you contributed with hardware, a Hashpower NFT, or (soon) an x402-paid agent rental. Hashpower is hashpower.
+  </Accordion>
+</AccordionGroup>
+
+## What gets paid in what currency
+
+| Contributor type | Paid in | Where |
+| --- | --- | --- |
+| Hardware miner | **BTC** | Direct to your stratum BTC address |
+| Hashpower NFT holder | **cbBTC** | On Base, to your minting wallet |
+| Agent (when live) | **cbBTC** | On Base, to your x402 settlement address |
+
+Finder rewards (when applicable) always pay BTC on the Bitcoin network, regardless of contributor type.
+
+## Reading next
+
+- **[Pool Comparison](/pool/comparison)** — How this stacks up vs. solo, PPS, FPPS, cloud mining.
+- **[For Miners → Payouts](/miners/payouts)** — Your share, your payouts, your address.
+- **[For Onchain Users → Rewards](/onchain/rewards)** — How NFT holders get paid in cbBTC.

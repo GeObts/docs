@@ -1,65 +1,80 @@
 ---
 title: "Mining Without Hardware"
-description: "How on-chain users participate in BasedMining through Base."
+description: "Hashpower NFTs on Base mainnet — real Bitcoin hashpower for the next Block Party."
 ---
 
 You don't need an ASIC to participate in Bitcoin mining anymore.
 
-BasedMining lets you mint a **BasedPool NFT** on Base — Coinbase's L2 — and earn a share of pool rewards without ever touching mining hardware.
+BasedMining lets you mint a **Hashpower NFT** on **Base mainnet**, and your mint rents real spot-market hashpower that points at the pool during the next **Block Party**. When the pool finds a block, you get a proportional share of the remainder — paid in **cbBTC on Base**, automatically.
 
-## What is a BasedPool NFT?
+## What is a Hashpower NFT?
 
-A BasedPool NFT is your on-chain receipt of participation in the pool. Holding one entitles you to a proportional share of pool rewards over time, claimable on Base.
+A Hashpower NFT is your onchain receipt for a specific amount of mining hashpower over a specific window of time.
 
 <CardGroup cols={2}>
-  <Card title="Mint once" icon="wallet">
-    A one-time mint. No subscriptions, no recurring fees, no time-locks.
+  <Card title="Real hashpower" icon="bolt">
+    Each mint rents actual ASIC time from the spot market and routes it at our pool during the next Block Party.
   </Card>
-  <Card title="Earn passively" icon="chart-line">
-    Your share of pool rewards accrues automatically.
+  <Card title="Pays in cbBTC" icon="bitcoin-sign">
+    When a block is found during your mint's active window, you receive cbBTC on Base proportional to your contribution.
   </Card>
-  <Card title="Self-custody" icon="key">
-    Your NFT lives in your wallet. You can hold it, transfer it, or sell it on any compatible marketplace.
+  <Card title="Automatic — no claim" icon="bolt-lightning">
+    Payouts hit your wallet on Base. No claim button. No portal. No login.
   </Card>
-  <Card title="Transparent on-chain" icon="link">
-    Every mint, every claim, every reward distribution is verifiable on Base.
+  <Card title="Onchain art" icon="image">
+    Pixel-art NFT lives in your wallet permanently. The hashpower window is time-limited, the NFT is forever.
   </Card>
 </CardGroup>
 
-## Why this exists
+## Block Parties
 
-Bitcoin mining is the most adversarial market in crypto. Industrial farms with negotiated power deals dominate. A retail user can't compete on raw hashrate.
+Hashpower NFTs activate during **Block Parties** — 24-hour windows where the pool concentrates extra hashpower into the same round. More hashpower aimed at the same target means more shots at finding a block, and more shots means more chances for the whole pool to win.
 
-But a retail user **can** pool capital with other retail users, and that pool — operated efficiently — can compete. That is what BasedPool NFTs are: programmable, on-chain pool participation.
+Every Hashpower NFT mint **auto-queues for the next Block Party**. You don't have to do anything. When the event starts, your rented hashpower activates and mines for the full window.
 
-## How rewards reach you
+Missed this Party? Your mint queues for the next one — your time window starts when the Party starts.
 
-<Steps>
-  <Step title="The pool finds blocks">
-    Hashrate connected to BasedMining contributes to finding Bitcoin blocks.
-  </Step>
-  <Step title="Pool rewards are split">
-    A portion of pool rewards is allocated to the on-chain reward pool.
-  </Step>
-  <Step title="Distribution is computed">
-    Each NFT's share is calculated from the on-chain reward pool.
-  </Step>
-  <Step title="You claim">
-    Connect your wallet on the dashboard and claim your share. Or let it accrue.
-  </Step>
-</Steps>
+## The four tiers
+
+| Tier | USD price | Hashpower | Duration | Notes |
+| --- | --- | --- | --- | --- |
+| **Spark** | $15 | ~1 PH/s | ~9 hours | Entry ticket — get your first share, get on the board |
+| **Miner** | $35 | ~1.8 PH/s | ~12 hours | Most popular tier |
+| **Digger** | $100 | ~2.5 PH/s | ~24 hours | Full Block Party window |
+| **Crusher** | $250 | ~6 PH/s | ~24 hours | Whale tier — anchor the pool |
 
 <Note>
-  We are launching on **Base Sepolia** (testnet) first. Mainnet follows after audit.
+Hashpower and duration figures are estimates based on current spot-market rates. Actual values may vary with market conditions at time of mint — your USD price is fixed, but the hashpower and duration adjust to what's actually available when you mint.
 </Note>
+
+## How payments work
+
+Mint with **ETH**, **USDC**, or **cbBTC** — all on **Base mainnet**. The mint contract reads live price feeds and quotes the equivalent for whichever token you pick.
+
+You can mint multiple NFTs in a single transaction (up to 20 per call). Quantity multiplies hashpower and time, not just price.
+
+## What stays fixed vs. what varies
+
+| Fixed | Varies |
+| --- | --- |
+| USD price per tier | Hashpower (PH/s) |
+| Payout token (cbBTC) | Duration (hours) |
+| Payout chain (Base) | Block-find timing (luck) |
+| Distribution math (proportional) | Number of blocks during your window |
+
+## Why we do it this way
+
+Bitcoin mining is still **the best lottery in the world**. A single home miner *can* — and occasionally does — solve a block. We can't make you guaranteed money, but we can give you exposure to a Block Party where the whole pool is aiming at finding a block together. When one lands, the finder gets 1 BTC and everyone who contributed (you included) gets a slice of the ~2.1 BTC remainder.
+
+The **more Hashpower NFTs you mint**, the bigger your contribution to that Block Party, and the bigger your slice if a block is found. It also moves you up the [leaderboards](/dashboard/leaderboards) where occasional bonus rewards land.
 
 ## Get started
 
 <CardGroup cols={2}>
-  <Card title="Mint a BasedPool NFT" icon="plus" href="/onchain/mint">
-    Two minutes, a wallet, and you're in.
+  <Card title="Mint Hash" icon="sparkles" href="/onchain/mint-hash">
+    Wallet + 2 minutes. Walkthrough is here.
   </Card>
-  <Card title="Tour the dashboard" icon="display" href="/onchain/dashboard">
-    See what holders see — pool stats, your share, and reward history.
+  <Card title="Rewards" icon="bitcoin-sign" href="/onchain/rewards">
+    How cbBTC payouts work after a block is found.
   </Card>
 </CardGroup>

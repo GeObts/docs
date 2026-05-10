@@ -2,16 +2,16 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "maple",
   "name": "BasedMining",
-  "description": "A Bitcoin mining pool built for home miners, on-chain users, and AI agents.",
+  "description": "Mine Bitcoin. Hybrid Lottery Pool. Built for home miners, AI agents, and onchain users.",
   "colors": {
-    "primary": "#F7931A",
-    "light": "#F7931A",
-    "dark": "#F7931A"
+    "primary": "#FF6A00",
+    "light": "#FF6A00",
+    "dark": "#FF6A00"
   },
   "background": {
     "color": {
       "dark": "#000000",
-      "light": "#FFFFFF"
+      "light": "#F5F5F0"
     }
   },
   "appearance": {
@@ -33,6 +33,13 @@
             ]
           },
           {
+            "group": "The Pool",
+            "pages": [
+              "pool/hybrid-model",
+              "pool/comparison"
+            ]
+          },
+          {
             "group": "For Miners",
             "pages": [
               "miners/overview",
@@ -41,11 +48,10 @@
             ]
           },
           {
-            "group": "For On-Chain Users",
+            "group": "For Onchain Users",
             "pages": [
               "onchain/overview",
-              "onchain/mint",
-              "onchain/dashboard",
+              "onchain/mint-hash",
               "onchain/rewards"
             ]
           },
@@ -53,6 +59,26 @@
             "group": "For Agents",
             "pages": [
               "agents/overview"
+            ]
+          },
+          {
+            "group": "Dashboard",
+            "pages": [
+              "dashboard/overview",
+              "dashboard/leaderboards",
+              "dashboard/your-miner-page"
+            ]
+          },
+          {
+            "group": "Calculator",
+            "pages": [
+              "calculator/overview"
+            ]
+          },
+          {
+            "group": "Referrals",
+            "pages": [
+              "referrals/overview"
             ]
           },
           {
@@ -73,6 +99,16 @@
           "icon": "globe"
         },
         {
+          "anchor": "Mint Hash",
+          "href": "https://basedmining.xyz/mint",
+          "icon": "sparkles"
+        },
+        {
+          "anchor": "Dashboard",
+          "href": "https://basedmining.xyz/dashboard",
+          "icon": "chart-line"
+        },
+        {
           "anchor": "Twitter",
           "href": "https://twitter.com/basedminingco",
           "icon": "twitter"
@@ -88,8 +124,12 @@
   "navbar": {
     "links": [
       {
-        "label": "Mint NFT",
+        "label": "Mint Hash",
         "href": "https://basedmining.xyz/mint"
+      },
+      {
+        "label": "Connect Miner",
+        "href": "https://basedmining.xyz/connect"
       }
     ],
     "primary": {

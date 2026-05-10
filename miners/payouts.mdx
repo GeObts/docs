@@ -1,53 +1,81 @@
 ---
 title: "Payouts"
-description: "When and how miners get paid."
+description: "How miners get paid: 1 BTC if you find a block, proportional share of the remainder either way, 0% fee, automatic."
 ---
 
-## How payouts work
+## Two payouts per block
 
-When the pool finds a Bitcoin block, the reward is split among everyone who contributed work since the last block. Your share is proportional to the work your miner did, attributed by the shares it submitted.
-
-Payouts go directly to the BTC address you set as your worker username. We don't hold them, we don't wrap them, we don't make you log in to claim them.
-
-## Frequency
-
-Payouts are sent on a regular cadence whenever your unpaid balance crosses the network-fee threshold. You can watch your balance accrue in real time on the [dashboard](https://basedmining.xyz).
-
-<Note>
-  Tiny miners (a single Bitaxe, for example) accrue rewards more slowly than big rigs — the math is the same, but the absolute number is smaller. This is expected and not a bug.
-</Note>
-
-## Fee
-
-BasedMining charges a low pool fee, deducted from rewards before payout. The current fee is published on the [dashboard](https://basedmining.xyz). We are committed to keeping it competitive with the major pools while reinvesting into the home-miner experience.
-
-## What you'll see
+Every time the pool finds a block, two things happen:
 
 <CardGroup cols={2}>
-  <Card title="Pending balance" icon="hourglass">
-    Rewards earned but not yet sent. Updates as the pool processes blocks.
+  <Card title="Finder gets 1 BTC" icon="trophy">
+    Paid by the Bitcoin protocol directly to the finder's BTC address. **Instant**, the moment the block lands.
   </Card>
-  <Card title="Paid balance" icon="circle-check">
-    Total BTC sent to your address since you joined.
-  </Card>
-  <Card title="Payout history" icon="list">
-    Each on-chain BTC transaction we sent you, with the txid.
-  </Card>
-  <Card title="Worker stats" icon="chart-line">
-    Hashrate, share count, accepted vs rejected — per worker.
+  <Card title="Everyone else gets a slice" icon="users">
+    The ~2.1 BTC + fees remainder is split among all contributors of the round, by accepted-share difficulty. Sent on-chain, automatic.
   </Card>
 </CardGroup>
 
-## Important notes
+Both payouts go to **the BTC address you set as your stratum username**. There is no separate claim, no portal, no login. Bitcoin shows up in your wallet.
+
+## How your share is calculated
+
+Within a round (the time between two blocks the pool found), every accepted share you submit gets counted by difficulty:
+
+```
+your share = (your accepted-share difficulty during the round)
+             ────────────────────────────────────────────────  × pool remainder
+             (total accepted-share difficulty during the round)
+```
+
+This is **PPLNS-by-diff** — pay per last N shares, weighted by difficulty. Bigger rigs with higher difficulty shares get a bigger slice. Smaller rigs still get a slice; just a smaller one.
+
+If you want the deeper math, see **[The Hybrid Model](/pool/hybrid-model)**.
+
+## When you get paid
+
+- **Finder reward (if you win):** instant. The 1 BTC is in the same Bitcoin block your miner solved.
+- **Remainder share:** typically within ~24 hours of a block being found. The operator runs the round through the payout simulator, verifies it reconciles, and broadcasts a single Bitcoin transaction with everyone's share.
+
+There is no minimum payout threshold to cross — your share for each round arrives in the per-round distribution transaction.
+
+## What you watch on the dashboard
+
+Your per-miner page at `basedmining.xyz/miner/<your-btc-address>` shows:
+
+- Live hashrate (1m, 1h, 24h)
+- Best share you've submitted (your "top difficulty")
+- Total accepted vs rejected shares
+- Last share timestamp
+- PH-days (cumulative work)
+- Blocks the pool found that you contributed to
+
+The main **[Dashboard](/dashboard/overview)** shows pool-wide stats and the leaderboards (Top Difficulties, Top Loyalty).
+
+## Use a wallet you control
 
 <Warning>
-  **Use a wallet you control.** Sending payouts to an exchange deposit address is risky — exchanges sometimes silently change deposit addresses, refuse small transactions, or deactivate accounts. If you must use an exchange, check their address rules first. Better: use a self-custody wallet like Sparrow, BlueWallet, or a hardware wallet.
+**Don't mine to an exchange deposit address.** Exchanges sometimes:
+- Refuse small inbound transactions
+- Silently change deposit addresses (which would route your payouts to nowhere)
+- Flag mining payouts as suspicious
+
+Use a self-custody wallet — Sparrow, BlueWallet, a hardware wallet. You keep the keys, you keep the BTC.
 </Warning>
 
-<Warning>
-  **Test with a small rig first.** If this is your first time mining to a pool, start with a Bitaxe or one ASIC for a day. Confirm payouts arrive, then scale up.
-</Warning>
+## Verify the pool is paying you trustlessly
+
+The 1 BTC finder reward is enforced by Bitcoin consensus, not by us. Anyone can verify by:
+
+1. Connecting to stratum at `pool.basedmining.xyz:3333` with your address
+2. Capturing the `mining.notify` message
+3. Reconstructing the coinbase template from the `coinb1 + extranonce + coinb2` fields
+4. Running `decoderawtransaction` on a Bitcoin node
+
+You should see your address as the recipient of 1.00000000 BTC in `vout[0]`. If you see anything else, contact us and don't mine.
+
+This is the strongest possible payout guarantee in mining — even the pool operator cannot route your finder reward elsewhere.
 
 ## Questions
 
-See the **[FAQ](/faq)** for the most common payout questions, or reach out on [@basedminingco](https://twitter.com/basedminingco).
+See the **[FAQ](/faq)** for common payout questions, or reach out on [@basedminingco](https://twitter.com/basedminingco).

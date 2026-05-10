@@ -1,0 +1,106 @@
+---
+title: "Referrals"
+description: "Refer friends, earn free Hashpower. v1 program — special bonuses drop occasionally."
+---
+
+<Note>
+**v1.** This is the first iteration of the referral program. Mechanics may change. Follow [@basedminingco](https://twitter.com/basedminingco) for special bonus rounds (extra rewards for early referrers, double-credit windows, etc.).
+</Note>
+
+## How it works
+
+Every Hashpower NFT mint generates a personal referral link tied to the connected wallet:
+
+```
+https://basedmining.xyz/mint?ref=<your-evm-address>
+```
+
+When someone mints through your link, **you earn 1 credit**.
+
+## What credits get you
+
+| Credits | Reward |
+| --- | --- |
+| **10** | 1 free **Spark** NFT |
+| **50** | 5 free **Sparks** + **$50** bonus |
+
+Future tiers may unlock more rewards — follow [@basedminingco](https://twitter.com/basedminingco) for announcements.
+
+## Where to find your link
+
+Two places:
+
+1. **The Mint success modal** — after you complete a mint, the modal shows your personal link with a copy button and "Share on X" button
+2. **Your miner page** — `basedmining.xyz/miner/<your-address>` has a referral panel if you're a Hashpower NFT holder
+
+The Mint page also shows a **Referral Leaderboard** with the current top referrers.
+
+## How rewards get delivered
+
+When you hit a credit threshold:
+
+1. The system queues a reward fulfillment
+2. The operator reviews via Telegram bot (anti-fraud step)
+3. On approval, a free Spark NFT (or bundle, for the 50-credit tier) is provisioned to your address
+4. Your hashpower from the free Spark activates in the next Block Party — same as a paid mint
+
+The whole flow is the same code path that handles paid Spark mints — your free reward earns cbBTC the same way.
+
+## Anti-fraud
+
+To keep the program honest:
+
+- Each mint can only attribute one referrer (the first one)
+- The system rejects self-referrals (you can't refer your own next mint)
+- Each referee's mint transaction can only count once
+- All free reward fulfillment is operator-approved, not algorithmic
+
+Wash-referral attempts are uneconomical anyway — the cost of minting a paid NFT to farm credits exceeds the value of the resulting free Spark.
+
+## Sharing scripts
+
+The "Share on X" button in the success modal pre-fills:
+
+```
+Refer to earn free hashpower and your shot at One Bitcoin. Solo Bitcoin mining
+from @basedminingco on @base
+
+https://basedmining.xyz/mint?ref=<your-address>
+```
+
+Feel free to use your own framing. Anything that pre-fills the `?ref=<your-evm-address>` parameter counts as your referral.
+
+## Special bonus rounds
+
+We periodically run **bonus referral rounds** — limited-time windows where credits earn extra rewards:
+
+- "First 100 referrers get an extra $50"
+- "Double-credit weekend"
+- "Refer a Crusher mint → bonus +5 credits"
+
+These are operator-discretion and announced on [@basedminingco](https://twitter.com/basedminingco). Follow there if you want to catch them.
+
+## Common questions
+
+<AccordionGroup>
+  <Accordion title="Does my referrer earn anything when I mint?">
+    Yes — they get 1 credit toward their reward threshold. It doesn't cost you anything; the program is bonus-funded by the operator.
+  </Accordion>
+  <Accordion title="Do I have to use someone else's referral link?">
+    No. Minting without a `?ref=` works fine. The program is opt-in for the referrer; you don't lose anything by not having one.
+  </Accordion>
+  <Accordion title="Can I refer myself?">
+    No. The system rejects self-referrals (same wallet as referrer and referee).
+  </Accordion>
+  <Accordion title="What if I switch wallets?">
+    Your credits are tied to the EVM wallet that received the referrals. If you switch wallets, the credits stay with the old one. Use the same wallet for minting and referring to avoid this.
+  </Accordion>
+  <Accordion title="When do I get my free Spark?">
+    Once you cross 10 credits, the reward is queued. Operator approval typically happens within 24 hours, after which your Spark is provisioned and queues for the next Block Party.
+  </Accordion>
+</AccordionGroup>
+
+## Reading next
+
+- **[Mint Hash](/onchain/mint-hash)** — start minting to get your referral link.
+- **[Leaderboards](/dashboard/leaderboards)** — separate from referral leaderboard, but worth climbing.

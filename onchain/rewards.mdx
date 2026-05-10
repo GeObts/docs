@@ -1,48 +1,74 @@
 ---
 title: "Rewards"
-description: "How NFT rewards accrue and how to claim them."
+description: "How Hashpower NFT holders get paid — automatically, in cbBTC, on Base."
 ---
 
-## Accrual
+## You don't have to claim anything
 
-When the pool earns rewards, a portion is allocated to the on-chain pool, distributed across all BasedPool NFTs in proportion to holdings.
+<Warning>
+**There is no claim flow. There is no claim button. There is no portal to log into.**
 
-You don't have to do anything for accrual to happen. As long as you hold the NFT, your share grows.
+When a block is found during your active Block Party window, cbBTC arrives in the wallet that minted your NFT. That's it.
+</Warning>
 
-## Claiming
+## How your slice is calculated
 
-<Steps>
-  <Step title="Open the dashboard">
-    Go to [basedmining.xyz](https://basedmining.xyz) and connect your wallet.
-  </Step>
-  <Step title="Find your claimable balance">
-    The dashboard shows your unclaimed rewards. If the balance is zero, no claim is available yet.
-  </Step>
-  <Step title="Click Claim">
-    The dashboard prompts your wallet for a transaction. Approve it.
-  </Step>
-  <Step title="Receive on Base">
-    Once the transaction confirms, the rewards land in your wallet on Base.
-  </Step>
-</Steps>
+When the pool finds a block, the reward splits two ways:
 
-## Frequency
+- **Finder reward (1 BTC)** — paid in BTC by the Bitcoin network, to the address that solved the block. Hashpower NFT mints don't compete for this — it goes to whoever physically solved the block.
+- **Pool remainder (~2.1 BTC + fees)** — split proportionally among **everyone who contributed work to that round**, including hardware miners, NFT-backed rentals, and (when live) agent-backed rentals.
 
-You can claim whenever you want, but each claim costs gas (small amounts on Base, but non-zero). It's usually most economical to let rewards accrue for a while before claiming.
+Your slice of the remainder is calculated by hashrate contribution:
 
-<Note>
-  There is no expiry on rewards. You don't lose them if you wait.
-</Note>
+```
+your slice = (your hashrate during the round)
+             ────────────────────────────────  × pool remainder
+             (total pool hashrate during the round)
+```
 
-## What if I sell my NFT?
+The remainder is converted to cbBTC and sent to your mint wallet on Base.
 
-When you transfer or sell a BasedPool NFT, **future** reward accrual goes to the new owner. Rewards already accrued (and unclaimed) stay with the address that held the NFT during accrual — make sure to claim before transferring if you want to keep them.
+## When you get paid
+
+A block has to be found **during your tier's active window** for your NFT to earn from that block. Typical flow:
+
+1. You mint. Your NFT queues for the next Block Party.
+2. Block Party starts. Your hashpower activates.
+3. During the window, the pool may or may not find a block (mining is probabilistic — see the [calculator](/calculator/overview) for live odds).
+4. If a block is found, your share of the remainder pays out in cbBTC to your wallet within ~24 hours.
+5. When your tier's duration ends, your hashpower deactivates. No further accrual from this mint.
+
+Hold multiple NFTs across multiple Block Parties to compound your shots at a block.
+
+## More NFTs = bigger slice + higher rank
+
+Two effects when you mint more:
+
+<CardGroup cols={2}>
+  <Card title="Bigger payout slice" icon="bitcoin-sign">
+    Your proportional share of the remainder scales linearly with your contributed hashpower. 2× the mints = 2× the slice (assuming same Block Party).
+  </Card>
+  <Card title="Higher leaderboard rank" icon="trophy">
+    More hashpower moves you up the public Top Difficulties and Top Loyalty boards on the [dashboard](/dashboard/leaderboards). Special bonus rewards drop here occasionally.
+  </Card>
+</CardGroup>
+
+## What happens after my mint expires?
+
+The hashpower window ends when your tier's duration elapses. Your **NFT stays in your wallet permanently** — the art is yours forever. The hashpower window does not auto-renew; if you want another window, mint again for the next Block Party.
+
+## Transferring your NFT
+
+The Hashpower NFT is a standard ERC-721 on Base and can be transferred or sold. **Note:** for currently-active mints, share-credit attribution is still bound to the original minter — transferring during an active window moves the art but not the active rental.
+
+If you want exposure to future Block Parties, mint a new one or wait for the secondary market.
 
 ## Tax and reporting
 
-Rewards from BasedPool NFTs may be taxable in your jurisdiction. We do not provide tax advice. Keep records of mints, claims, and transfers — your wallet's transaction history on Base is the source of truth.
+Mining rewards may be taxable in your jurisdiction. We do not provide tax advice. Your wallet's transaction history on Base is the source of truth — every mint, every payout, every transfer is publicly verifiable on Basescan.
 
 ## Next
 
-- **[FAQ](/faq)** — common reward questions
-- **[Dashboard](/onchain/dashboard)** — see your live balance
+- **[How It Works](/how-it-works)** — the hybrid model in one page.
+- **[Dashboard](/dashboard/overview)** — watch the pool live.
+- **[FAQ](/faq)** — common reward questions.

@@ -1,0 +1,54 @@
+---
+title: "Mining Odds Calculator"
+description: "Plug in a hashrate, see your probabilistic shot at the next block."
+---
+
+The [Mining Odds Calculator](https://basedmining.xyz/calculator) is a live tool that takes a hashrate and shows you the probabilistic odds of finding a Bitcoin block.
+
+## What it tells you
+
+You enter:
+
+- A hashrate (e.g. `10 TH/s`)
+- A unit (TH/s, PH/s, EH/s, etc.)
+
+The calculator returns the odds of finding a block based on the current Bitcoin network difficulty and the live network hashrate. The numbers update as the network changes.
+
+## Why it matters
+
+Mining is a probability game. Every share your ASIC submits is essentially a lottery ticket; the question is just how many tickets per second you're buying and how many tickets total are in play across the whole network.
+
+The calculator answers questions like:
+
+- "If I run my Bitaxe Gamma (1.2 TH/s) for a year, what are my odds of finding a block?"
+- "If the whole pool runs at 100 PH/s during a Block Party, what's the expected time between blocks?"
+- "What hashrate would I need to expect a block per month?"
+
+## Solo vs hybrid pool
+
+The calculator is set up to show **solo odds**. With BasedMining's hybrid model, your *odds of being the finder* are the same as solo — but you also accrue a proportional share of every block the pool finds while you're contributing. So the calculator understates your real expected return when mining with us.
+
+Think of the calculator output as "your chance at the 1 BTC jackpot" — your steady remainder accrual is on top of that.
+
+## Sharing
+
+The calculator generates an Open Graph image with your input — handy for sharing on Twitter or in chats. The shared link replays the same calculation.
+
+URL format:
+
+```
+basedmining.xyz/calculator?hash=10&unit=TH/s
+```
+
+## Caveats
+
+<Warning>
+The odds are **probabilistic**. A 1-in-X chance over a year doesn't mean you'll hit at exactly year X — you could hit tomorrow, never, or anywhere in between. Bitcoin mining is high-variance.
+</Warning>
+
+The calculator uses live network difficulty and hashrate — both change. A number you see today won't necessarily hold next month. Re-run the calculator when you want a fresh number.
+
+## Reading next
+
+- **[The Hybrid Model](/pool/hybrid-model)** — why your expected return on BasedMining beats pure solo math.
+- **[Dashboard](/dashboard/overview)** — live pool and network conditions.

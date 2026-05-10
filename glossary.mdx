@@ -1,36 +1,66 @@
 ---
 title: "Glossary"
-description: "Mining and on-chain terms in plain English."
+description: "Mining, hybrid-pool, and onchain terms in plain English."
 ---
 
-If you're new to mining or on-chain, these are the words that come up most.
+## BasedMining-specific
+
+<AccordionGroup>
+  <Accordion title="Hybrid Lottery Pool">
+    The model BasedMining runs: finder gets 1 BTC (chain-enforced) + everyone who contributed to the round gets a proportional share of the remainder. Combines the upside of solo mining with the steady accrual of a traditional pool.
+  </Accordion>
+  <Accordion title="Block Party">
+    A scheduled 24-hour window where the pool concentrates extra hashpower (from Hashpower NFT mints) into the same round. More hashpower = better odds of finding a block during the Party.
+  </Accordion>
+  <Accordion title="Hashpower NFT">
+    The onchain receipt for a specific amount of mining hashpower over a specific window of time. Mint on Base mainnet; activates during the next Block Party; pays cbBTC on Base.
+  </Accordion>
+  <Accordion title="Spark / Miner / Digger / Crusher">
+    The four Hashpower NFT tiers — entry, popular, full-window, whale. See [the tier table](/onchain/overview#the-four-tiers).
+  </Accordion>
+  <Accordion title="Round">
+    The interval between two found blocks. Your contribution to the round determines your share of that block's remainder.
+  </Accordion>
+  <Accordion title="Finder">
+    The miner whose share solved the block. Receives 1 BTC directly from the Bitcoin protocol — chain-enforced.
+  </Accordion>
+  <Accordion title="Remainder">
+    Block subsidy + tx fees minus the 1 BTC finder reward. Lands in the pool wallet on-chain; distributed by the operator to all round contributors proportionally.
+  </Accordion>
+  <Accordion title="PPLNS-by-diff">
+    "Pay per last N shares, weighted by difficulty." How the remainder gets split: your share is proportional to your summed accepted-share difficulty within the round.
+  </Accordion>
+  <Accordion title="cbBTC">
+    Coinbase Wrapped Bitcoin on Base — a 1:1 backed Bitcoin token. The currency Hashpower NFT holders receive their rewards in.
+  </Accordion>
+</AccordionGroup>
 
 ## Mining
 
 <AccordionGroup>
   <Accordion title="ASIC">
-    Application-Specific Integrated Circuit. A chip designed to do one thing — in this case, hash Bitcoin's SHA-256 algorithm. ASICs are vastly more efficient than GPUs or CPUs at this work.
+    Application-Specific Integrated Circuit. A chip designed for one job — in this case, hashing Bitcoin's SHA-256. Vastly more efficient than GPUs or CPUs at this work.
   </Accordion>
   <Accordion title="Hashrate">
-    How much hashing your miner does per second. Measured in H/s, KH/s, MH/s, GH/s, TH/s, PH/s, EH/s. A modern home ASIC does TH/s (terahashes per second). The whole Bitcoin network does ~600 EH/s.
+    How much hashing your miner does per second. Units: H/s, KH/s, MH/s, GH/s, TH/s, PH/s, EH/s. Modern home ASICs do TH/s (terahashes). The whole Bitcoin network is ~600 EH/s.
   </Accordion>
   <Accordion title="Stratum">
     The standard protocol miners use to talk to pools. When you point your ASIC at `stratum+tcp://...`, you're using stratum.
   </Accordion>
   <Accordion title="Worker">
-    A label for one mining device. If you run three ASICs, each is a worker. They share the same BTC payout address but have different worker names so you can tell them apart on the dashboard.
+    A label for one mining device. Multiple workers can share the same BTC payout address but have different worker names to distinguish them on the dashboard.
   </Accordion>
   <Accordion title="Share">
     A proof-of-work submission from a miner. Each share is a hash that meets the pool's difficulty target (lower than Bitcoin's network difficulty). The pool counts shares to attribute work fairly.
   </Accordion>
   <Accordion title="Block">
-    A block is what miners actually find. When the pool finds one, it earns the block subsidy (currently 3.125 BTC) plus transaction fees, and distributes that to contributors.
-  </Accordion>
-  <Accordion title="Pool fee">
-    A small percentage the pool keeps from each block reward to cover infrastructure and development.
+    What miners actually find. When a share happens to meet the network difficulty (not just the pool's), it's a block — earning the block subsidy (currently 3.125 BTC) plus transaction fees.
   </Accordion>
   <Accordion title="Solo vs pool mining">
-    Solo: you mine alone and keep 100% of any block you find — but small miners may go years without finding one. Pool: you join a group, your share counts toward the pool's collective work, and you get steady small payouts.
+    Solo = mine alone, keep 100% if you win, get zero otherwise. Pool = join a group, share rewards proportionally. Hybrid pool (BasedMining) = both at once.
+  </Accordion>
+  <Accordion title="PH-days">
+    Petahash-days — a cumulative measure of work. 1 PH/s sustained for 24 hours = 1 PH-day. Useful for comparing total contribution across long periods.
   </Accordion>
 </AccordionGroup>
 
@@ -38,39 +68,42 @@ If you're new to mining or on-chain, these are the words that come up most.
 
 <AccordionGroup>
   <Accordion title="BTC">
-    The native asset of the Bitcoin network. What miners earn. What the pool pays out.
+    The native asset of the Bitcoin network. What miners earn. What the pool pays.
   </Accordion>
   <Accordion title="Block subsidy / block reward">
-    The fixed BTC amount minted with each new block. Currently 3.125 BTC. Halves roughly every four years.
+    The fixed BTC amount minted with each new block. Currently **3.125 BTC**. Halves roughly every four years; next halving in 2028.
+  </Accordion>
+  <Accordion title="Coinbase">
+    The first transaction in a block — the one that pays the block reward. *Not* to be confused with Coinbase the company. The pool gives miners a coinbase template that's already set up to split outputs correctly.
   </Accordion>
   <Accordion title="Difficulty">
-    A network parameter that adjusts how hard it is to find a valid block, automatically retargeting every 2016 blocks (~2 weeks) to keep block time near 10 minutes.
+    A network parameter that adjusts how hard it is to find a valid block. Retargets every 2,016 blocks (~2 weeks) to keep block time near 10 minutes.
   </Accordion>
 </AccordionGroup>
 
-## On-chain (Base / EVM)
+## Onchain (Base / EVM)
 
 <AccordionGroup>
   <Accordion title="Base">
-    Coinbase's L2 — a fast, cheap blockchain that settles to Ethereum. BasedMining's on-chain side runs on Base.
-  </Accordion>
-  <Accordion title="Base Sepolia">
-    The testnet version of Base. Used for testing without real money. Get test ETH from any Base Sepolia faucet.
+    A fast, cheap EVM L2 — Bitcoin's onchain-rewards layer on BasedMining lives here. **Don't call it "Coinbase L2"** — it's Base, or Base mainnet, or Base chain.
   </Accordion>
   <Accordion title="Wallet">
-    A piece of software (or hardware) that holds your private keys. Examples: Rainbow, Coinbase Wallet, MetaMask, Frame. You need one to interact with on-chain BasedMining.
+    Software (or hardware) that holds your private keys. Examples: Rainbow, Coinbase Wallet, MetaMask, Frame. You need one to interact with the onchain side.
   </Accordion>
   <Accordion title="NFT">
-    Non-Fungible Token. A unique on-chain record. A BasedPool NFT represents your participation share in the pool.
+    Non-Fungible Token. A unique onchain record. A Hashpower NFT represents your hashpower contribution for a Block Party.
   </Accordion>
   <Accordion title="Gas">
-    The fee you pay to make any transaction on an EVM chain. Base gas is very cheap (often less than a cent on mainnet, free on testnet faucets).
+    The fee you pay to make any transaction on an EVM chain. Base gas is very cheap — often less than a cent.
   </Accordion>
   <Accordion title="Mint">
-    The act of creating a new on-chain item — in our case, a BasedPool NFT. You pay the mint price + gas, the contract creates the NFT and assigns it to your wallet.
+    The act of creating a new onchain item. Here: minting a Hashpower NFT — pay the mint price + gas, the contract creates the NFT and assigns it to your wallet.
   </Accordion>
-  <Accordion title="Claim">
-    Withdrawing the rewards your NFT has accrued. A wallet transaction that transfers the rewards into your address.
+  <Accordion title="USDC">
+    A USD-pegged stablecoin. Native on Base. One of three payment options for minting Hashpower NFTs.
+  </Accordion>
+  <Accordion title="Basescan">
+    The Base block explorer at [basescan.org](https://basescan.org). Where you verify your mint transactions and contract interactions.
   </Accordion>
 </AccordionGroup>
 
@@ -78,12 +111,12 @@ If you're new to mining or on-chain, these are the words that come up most.
 
 <AccordionGroup>
   <Accordion title="x402">
-    An open HTTP standard for paying for API calls with stablecoins. The server returns HTTP 402, the client pays, the call completes. See [x402.org](https://www.x402.org).
+    An open HTTP standard for paying for API calls with stablecoins. Server returns `402 Payment Required`, client pays, call completes. See [x402.org](https://www.x402.org).
   </Accordion>
   <Accordion title="Stablecoin">
     A token pegged to a fiat currency (typically USD). USDC on Base is the canonical example.
   </Accordion>
   <Accordion title="Agent">
-    Here, an autonomous program (often LLM-driven) that can take actions, including mining decisions and payments, without human intervention per call.
+    Here: an autonomous program (usually LLM-driven) that can take actions, including mining decisions and payments, without per-call human approval.
   </Accordion>
 </AccordionGroup>

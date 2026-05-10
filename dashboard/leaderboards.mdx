@@ -1,0 +1,61 @@
+---
+title: "Leaderboards"
+description: "Who's contributing, who's loyal, who's earned what. Plus special rewards that drop here."
+---
+
+The [dashboard](https://basedmining.xyz/dashboard) has three live leaderboards. They're public, they update every 30 seconds, and they're where bonus rewards occasionally land.
+
+## Main Leaderboard
+
+A ranked list of contributors by current hashrate. Each row shows:
+
+- **#** — current rank
+- **Address** — your BTC address (or your Hashpower NFT's resolved label: Basename, ENS, or truncated EVM)
+- **Diff Rank** — your best share submitted (top difficulty)
+- **Loyalty** — number of blocks you've contributed to
+
+A green dot next to your address means your worker is currently active (submitted a share in the last 60 seconds). A `RENTAL` badge appears next to NFT-backed entries.
+
+## Top Difficulties
+
+Ranked by best share submitted. This is the "biggest hammer" board — whoever has hit the highest-difficulty share holds the top spot.
+
+Difficulty is measured in `K`, `M`, `G`, `T`, `P` (kilo / mega / giga / tera / peta). A share that meets Bitcoin's current difficulty target *is* a block — so the higher your top diff, the closer you came to solving a block.
+
+**Toggle:** *Since Block* / *All-Time*. The toggle only appears once the pool has found its first block — until then, "all-time" is the only option that makes sense.
+
+## Top Loyalty
+
+Ranked by number of blocks participated in. Loyalty rewards consistency — keep your rig pointed at the pool across many rounds and you climb here.
+
+Hardware miners that stay online for many rounds will outpace NFT-backed rentals here (rentals are time-limited; hardware miners are persistent).
+
+## Special rewards
+
+Leaderboard positions sometimes earn **bonus rewards** that aren't part of the standard payout flow:
+
+- **Top-rank bonuses** — occasional cbBTC airdrops to the top N of one board for a given window
+- **Milestone bonuses** — first miner to cross a difficulty threshold, first NFT holder to accumulate X PH-days, etc.
+- **Block Party special pools** — extra rewards earmarked for participants of specific Block Parties
+
+These are operator-discretion drops, not algorithmic. Follow [@basedminingco](https://twitter.com/basedminingco) for announcements and timing — bonuses are usually announced before the eligibility window so people can position.
+
+## How to climb
+
+**Hardware miners:**
+- Bigger ASIC = higher hashrate = higher rank
+- Better firmware tuning = higher accepted share rate
+- Stay connected long-term to dominate Loyalty
+
+**NFT holders:**
+- Higher-tier NFT = more hashpower contributed = bigger rank during your active window
+- Stack mints across Block Parties to build cumulative PH-days
+- Crusher tier ($250) anchors the leaderboard
+
+**Tip:** the Top Difficulties board rewards luck as much as power. A small miner can hit a freak high-difficulty share — that share doesn't have to solve a block to be the highest the pool has seen this round.
+
+## Reading next
+
+- **[Your Miner Page](/dashboard/your-miner-page)** — track your own stats over time.
+- **[Hybrid Model](/pool/hybrid-model)** — how rank relates to payouts.
+- **[Referrals](/referrals/overview)** — separate leaderboard, separate rewards.

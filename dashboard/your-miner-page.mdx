@@ -1,0 +1,69 @@
+---
+title: "Your Miner Page"
+description: "Your personal stats page — bookmark this."
+---
+
+Every miner gets a personal stats page at:
+
+```
+basedmining.xyz/miner/<your-btc-address>
+```
+
+Replace `<your-btc-address>` with the BTC address you registered as your stratum username. The page is public — anyone with the address can view it — so screenshot-share it freely.
+
+## What's on the page
+
+<CardGroup cols={2}>
+  <Card title="Live hashrate" icon="gauge">
+    Your hashrate across multiple windows (1m, 1h, 24h). Updates every 30 seconds.
+  </Card>
+  <Card title="Best share" icon="trophy">
+    Your top difficulty share — how close you've come to solving a block.
+  </Card>
+  <Card title="Accepted vs rejected" icon="check">
+    Counters for accepted and rejected shares. High rejection rate means firmware or clock issues.
+  </Card>
+  <Card title="Last share timestamp" icon="clock">
+    When your most recent share was submitted. If this is more than a few minutes old, your rig is offline.
+  </Card>
+  <Card title="PH-days" icon="chart-line">
+    Cumulative work expressed as petahash-days. Useful for comparing your total contribution across long periods.
+  </Card>
+  <Card title="Blocks participated" icon="cube">
+    How many blocks the pool found while you were contributing.
+  </Card>
+  <Card title="Worker breakdown" icon="server">
+    If you run multiple workers under the same address, each shows up here with its own stats.
+  </Card>
+  <Card title="Your Hashpower NFTs" icon="sparkles">
+    If your BTC address is mapped to a Hashpower NFT, the NFT inventory shows here too.
+  </Card>
+</CardGroup>
+
+## Bookmarking
+
+Bookmark your miner page. It's:
+
+- **Always your stats** — same URL forever, no login
+- **Shareable** — drop the link in a Discord or Twitter and people see your rig's current status
+- **Mobile-friendly** — the cleanest view of "is my rig still mining?" from your phone
+
+## Searching for any miner
+
+The navbar has a search box (small magnifier icon). Type any BTC or 0x address and it routes to that miner's page. You can use this to:
+
+- Check on a friend's rig
+- See how a leaderboard top-tier miner is doing
+- Verify someone else's claimed stats
+
+## What if my page is empty?
+
+If you just connected and your address has never submitted a share, the page will show empty stats. Within 1–2 minutes of your first accepted share, it populates.
+
+If you've been mining and the page suddenly empty:
+
+- Your rig is probably offline — check its local web UI
+- The wrong BTC address is in your stratum username
+- Internet to your rig is down
+
+The dashboard's main leaderboard will also drop you if you haven't submitted a share recently — confirm there too.
