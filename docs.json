@@ -86,6 +86,13 @@
               "faq",
               "glossary"
             ]
+          },
+          {
+            "group": "Legal",
+            "pages": [
+              "privacy",
+              "terms"
+            ]
           }
         ]
       }
