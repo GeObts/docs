@@ -9,7 +9,7 @@ description: "Hybrid lottery pool in one page. No claim flow, no operator fee, n
 2. The pool aggregates that hashpower and works the current Bitcoin block.
 3. When a block is found:
    - **The miner who solved it gets 1 BTC**, paid directly by the Bitcoin protocol.
-   - **The remaining ~2.1\+ BTC \+ fees** is split proportionally among everyone who contributed to that round.
+   - **The remaining ~2.1+ BTC + fees** is split proportionally among everyone who contributed to that round.
 4. NFT holders on Base get their share of pool rewards via \$cbBTC. Sent directly to their wallet. No claim involved.
 5. Home miners connecting with a Bitcoin wallet get paid out via \$BTC
 6. **0% operator fee** on block rewards. The pool earns when you do, not from your mining.
@@ -27,7 +27,7 @@ Most mining pools are one of two flavors:
 BasedMining is **hybrid**:
 
 - **Finder reward: fixed 1 BTC**, paid by Bitcoin itself via the coinbase transaction. Chain-enforced — even the pool operator can't reroute it.
-- **Pool remainder: ~2.1\+ BTC \+ fees**, distributed proportionally to everyone who contributed work to that round, by accepted-share difficulty (PPLNS-by-diff).
+- **Pool remainder: ~2.1+ BTC + fees**, distributed proportionally to everyone who contributed work to that round, by accepted-share difficulty (PPLNS-by-diff).
 
 So you get the upside of solo (a real shot at 1 BTC) plus the steady accrual of a traditional pool (your share of every block the pool finds).
 
@@ -59,7 +59,7 @@ See [The Hybrid Model](/pool/hybrid-model) for the deep dive, or [Pool Compariso
     A miner connected to the pool finds a valid block and submits it to Bitcoin. The 1 BTC finder reward is paid by the Bitcoin protocol — no operator action needed.
   </Step>
   <Step title="The remainder is distributed">
-    Based Pool agents distribute BTC and cbBTC, splitting it amongst contributors proportional to their work.
+    The pool distributes BTC and cbBTC, splitting it amongst contributors proportional to their work.
   </Step>
   <Step title="Rewards go out">
     Rewards are paid to:
@@ -86,7 +86,7 @@ See [The Hybrid Model](/pool/hybrid-model) for the deep dive, or [Pool Compariso
   </Card>
 
   <Card title="Agent-ready" icon="robot">
-    The pool is being designed so AI agents can buy optimization services per-call using x402. More on that .
+    The pool is being designed so AI agents can buy optimization services per-call using x402. See "For Agents" for the planned spec.
   </Card>
 
   <Card title="Operator transparency" icon="eye">
