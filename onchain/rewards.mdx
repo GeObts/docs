@@ -16,7 +16,7 @@ description: "How Hashpower NFT holders get paid — automatically, in cbBTC, on
 When the pool finds a block, the reward splits two ways:
 
 - **Finder reward (1 BTC)** — paid in BTC by the Bitcoin network, to the address that solved the block. Hashpower NFT mints don't compete for this — it goes to whoever physically solved the block.
-- **Pool remainder (~2.1 BTC \+ fees)** — split proportionally among **everyone who contributed work to that round**, including hardware miners, NFT-backed rentals, and (when live) agent-backed rentals.
+- **Pool remainder (~2.1 BTC + fees)** — split proportionally among **everyone who contributed work to that round**, including hardware miners, NFT-backed rentals, and (when live) agent-backed rentals.
 
 Your slice of the remainder is calculated by hashrate contribution:
 
@@ -28,27 +28,19 @@ your slice = (your hashrate during the round)
 
 The remainder is converted to cbBTC and sent to your mint wallet on Base.
 
-## When you get paid: The BasedMining payout mechanism
+## When you get paid
 
-Your Hashpower NFT represents a permanent contribution to the BasedMining pool. Every share of work your NFT contributes is recorded and remains active, entitling you to a proportional share of any block the pool finds, now or in the future.
+Payouts arrive in cbBTC on Base, typically within ~24 hours of a block being found.
 
-Here's how the payout flow works:
+1. **Mint.** Your Hashpower NFT is created and queues for the next Block Party.
+2. **Block Party opens.** Your hashpower activates for the duration of your tier.
+3. **Block is found** (if luck holds). The 1 BTC finder reward is paid by Bitcoin consensus to the address that solved it. The remainder (~2.1 BTC + fees) lands in the pool wallet.
+4. **Distribution.** The operator runs the round through the payout simulator and broadcasts the cbBTC distribution on Base, proportional to each NFT's contributed hashpower.
+5. **Payout.** Your share lands in the wallet that minted, automatically. No claim flow.
 
-1. You Mint: Your Hashpower NFT is minted, and its associated hashpower begins contributing to the pool.
+Holding multiple NFTs across multiple Block Parties stacks your hashpower share linearly across each Party.
 
-2.Contributions Recorded: Every valid share your NFT submits is permanently recorded, building up your proportional claim on future block rewards.
-
-3.Block Found: When the BasedMining pool successfully finds a Bitcoin block, the 1 BTC finder reward is immediately sent to the wallet of the miner who found the block (chain-enforced, as previously described).
-
-4.Remainder Distribution: The remaining block reward (approximately 2.1 BTC \+ fees) is then distributed proportionally among all NFT holders based on their cumulative contributions (recorded shares) up to the point the block was found.
-
-5.Payout: Your proportional share of the remainder is paid out in cbBTC directly to your wallet, typically within ~24 hours of the block being confirmed.
-
-Your contributions are cumulative and enduring.
-
-Hold multiple NFTs across multiple Block Parties to compound your shots at a block.
-
-## More NFTs = bigger slice \+ higher rank
+## More NFTs = bigger slice + higher rank
 
 Two effects when you mint more:
 
@@ -62,13 +54,11 @@ Two effects when you mint more:
   </Card>
 </CardGroup>
 
-## What happens after my mint expires?
+## What happens after my mint expires
 
-When your Hashpower NFT tier's duration elapses, the associated hashpower window concludes. However, your NFT itself remains in your wallet permanently.
+The hashpower window for your NFT ends when the tier's duration elapses. The NFT itself stays in your wallet permanently and remains an on-chain asset — art and metadata are stored fully on-chain, not pinned to IPFS.
 
-Crucially, BasedMining NFTs are fully on-chain. This means the art, metadata, and all essential characteristics of your NFT are stored directly on the blockchain, not merely pointed to IPFS or other off-chain storage. Your digital asset is truly yours, secured by the network, and immune to external server dependencies or link rot.
-
-While the hashpower window does not auto-renew, your NFT's art is yours forever, a testament to your participation in the Sovereign Mining Renaissance. If you wish to activate another hashpower window, you can mint again for the next Block Party, continuing your contribution to the pool.
+The hashpower window does not auto-renew. To get hashpower into the next Block Party, mint again.
 
 ## Transferring your NFT
 
